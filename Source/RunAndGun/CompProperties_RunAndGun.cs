@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace GunAndRun
+namespace RunAndGun
 {
     class CompProperties_RunAndGun : CompProperties
     {

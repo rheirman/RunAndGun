@@ -67,6 +67,11 @@ namespace RunAndGun
             yield return testActionGizmo;
         }
 
+        public void runAndGunAction()
+        {
+
+        }
+
         public void testAction()
         {
             Log.Message("testAction called");
