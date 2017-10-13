@@ -8,6 +8,8 @@ using Verse;
 using Verse.Sound;
 using Verse.AI;
 using RimWorld;
+using HugsLib;
+using HugsLib.Settings;
 
 
 
@@ -21,30 +23,9 @@ namespace RunAndGun.Harmony
         {
             var harmony = HarmonyInstance.Create("RunAndGun.Harmony");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("HarmonyBase initialisation executed");
-        }
-    }
-    /*
-    [HarmonyPatch(typeof(JobDriver_Goto),"Notify_StanceChanged")]
-    static class JobDriver_Wait_Notify_StanceChanged
-    {
-        static bool Prefix(JobDriver_Goto __instance)
-        {
-            Log.Message("notify stancechanged is called");
-            return true;
         }
     }
 
-    [HarmonyPatch(typeof(JobDriver_Goto), "CheckForAutoAttack")]
-    static class JobDriver_Wait_CheckForAutoAttack
-    {
-        static bool Prefix(JobDriver_Goto __instance)
-        {
-            Log.Message("checkforautoattack is called");
-            return true;
-        }
-    }
-    */
     [HarmonyPatch(typeof(JobDriver_Goto), "SetupToils")]
     static class JobDriver_SetupToils
     {
@@ -114,12 +95,9 @@ namespace RunAndGun.Harmony
         {
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             CompRunAndGun comp = pawn.TryGetComp<CompRunAndGun>();
-            Log.Message("TryStartAttack");
-            Log.Message("current stance: " + pawn.stances.curStance.ToString());
 
             if (comp == null || !comp.isEnabled  || pawn.jobs.curJob.def != JobDefOf.Goto)
             {
-                Log.Message("Executing normal TryStartCastOn");
                 return true;
             }
             //if (pawn.stances.FullBodyBusy)
@@ -139,7 +117,6 @@ namespace RunAndGun.Harmony
             Verb verb = pawn.TryGetAttackVerb(allowManualCastWeapons);
             if(verb != null)
             {
-                Log.Message("TryStartCast!");
                 verb.TryStartCastOn(targ, false, true);
             }
             return false;
@@ -152,7 +129,6 @@ namespace RunAndGun.Harmony
     {
         static bool Prefix(Verb __instance, ref LocalTargetInfo castTarg, ref bool surpriseAttack, ref bool canFreeIntercept)
         {
-            Log.Message("Prefix method is called");
             Pawn pawn = __instance.CasterPawn;
 
             if (__instance.caster == null)
@@ -178,7 +154,6 @@ namespace RunAndGun.Harmony
                 CompRunAndGun comp = pawn.TryGetComp<CompRunAndGun>();
                 if (comp == null || !comp.isEnabled || pawn.jobs.curJob.def != JobDefOf.Goto)
                 {
-                    Log.Message("Executing normal Stance_busy");
                     return true;
                 }
             }
@@ -200,12 +175,10 @@ namespace RunAndGun.Harmony
                 __instance.CasterPawn.Drawer.Notify_WarmingCastAlongLine(newShootLine, __instance.caster.Position);
                 float statValue = __instance.CasterPawn.GetStatValue(StatDefOf.AimingDelayFactor, true);
                 int ticks = (__instance.verbProps.warmupTime * statValue).SecondsToTicks();
-                Log.Message("creating Stance_RunAndGun");
                 __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun(ticks, castTarg, __instance));
             }
             else
             {
-                Log.Message("Calling warmupcomplete through TryStartCastOn");
                 __instance.WarmupComplete();
             }
             return false;
@@ -219,18 +192,12 @@ namespace RunAndGun.Harmony
         {
 
             if(!__instance.CasterIsPawn || (!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun) && !(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown))){
-                Log.Message("executing normal TryCastNextBurstShot");
                 return true;
             }
-            Log.Message("executing normal TryCastNextBurstShot for RunAndGun");
-            Log.Message("1");
             int burstShotsLeft = Traverse.Create(__instance).Field("burstShotsLeft").GetValue<int>();
-            Log.Message("2");
             LocalTargetInfo currentTarget = Traverse.Create(__instance).Field("currentTarget").GetValue<LocalTargetInfo>();
-            Log.Message("3");
             if (Traverse.Create(__instance).Method("TryCastShot").GetValue<bool>())
             {
-                Log.Message("5");
                 if (__instance.verbProps.muzzleFlashScale > 0.01f)
                 {
                     MoteMaker.MakeStaticMote(__instance.caster.Position, __instance.caster.Map, ThingDefOf.Mote_ShotFlash, __instance.verbProps.muzzleFlashScale);
@@ -247,35 +214,27 @@ namespace RunAndGun.Harmony
                 if (__instance.CasterPawn.thinker != null)
                 {
                     Traverse.Create(__instance.CasterPawn.mindState).Method("Notify_EngagedTarget");
-                    Log.Message("6");
                 }
                 if (__instance.CasterPawn.mindState != null)
                 {
-                    Log.Message("pre-7");
                     Traverse.Create(__instance.CasterPawn.mindState).Method("Notify_AttackedTarget", currentTarget);
-                    Log.Message("7");
                 }
                 if (!__instance.CasterPawn.Spawned)
                 {
                     return false;
                 }
                 Traverse.Create(__instance).Field("burstShotsLeft").SetValue(burstShotsLeft - 1);
-                Log.Message("8");
             }
             else
             {
-                Log.Message("pre-9");
+
                 Traverse.Create(__instance).Field("burstShotsLeft").SetValue(0);
-                Log.Message("9");
             }
             if (Traverse.Create(__instance).Field("burstShotsLeft").GetValue<int>() > 0)
             {
-                Log.Message("pre-10");
-                Log.Message("10");
                 int ticksBetweenBurstShots = Traverse.Create(__instance.verbProps).Field("ticksBetweenBurstShots").GetValue<int>();
-                Log.Message("11");
                 Traverse.Create(__instance).Field("ticksToNextBurstShot").SetValue(ticksBetweenBurstShots);
-                Log.Message("12");
+
                 if (__instance.CasterIsPawn)
                 {
                     __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
@@ -293,6 +252,29 @@ namespace RunAndGun.Harmony
             return false;
         }
     }
+    [HarmonyPatch(typeof(Pawn), "TicksPerMove")]
+    static class Pawn_TicksPerMove
+    {
+        static void Postfix(Pawn __instance, ref int __result)
+        {
+            if (__instance.stances.curStance is Stance_RunAndGun || __instance.stances.curStance is Stance_RunAndGun_Cooldown)
+            {
+                Log.Message("Calling tickspermove");
+                Log.Message("TicksPerMove was: " + __result.ToString());
+                ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
+                int value = settings.GetHandle<int>("movementPenalty").Value;
+                Log.Message("Value: " + value);
+;
+                float factor = ((float)(100 + value) / 100);
+                Log.Message("Factor:" + factor);
+                
+                __result = (int)Math.Floor((float)__result * factor);
+                Log.Message("TicksPerMove now is: " + __result.ToString());
+            }
+
+        }
+    }
+
 
 
 

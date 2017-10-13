@@ -3,7 +3,7 @@
  <RG_AccuracyPenalty_Title>Accuracy penalty(%)</RG_AccuracyPenalty_Title>
  <RG_AccuracyPenalty_Description>The accuracy penalty when run and gun is enabled</RG_AccuracyPenalty_Description>
  <RG_MovementPenalty_Title>Movement penalty(%)</RG_MovementPenalty_Title>
- <RG_MovementPenalty_Description>The movement penalty when while shooting</RG_MovementPenalty_Description>
+ <RG_MovementPenalty_Description>The movement penalty while shooting</RG_MovementPenalty_Description>
  
  <RG_Action_Enable_Label>Run and Gun!</RG_Action_Enable_Label>
  <RG_Action_Disable_Label>Disable Run and Gun</RG_Action_Disable_Label>
