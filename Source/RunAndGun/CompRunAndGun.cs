@@ -25,7 +25,7 @@ namespace RunAndGun
                 return pawn;
             }
         }
-        bool isEnabled = false; 
+        public bool isEnabled = false; 
 
 
 
@@ -47,7 +47,7 @@ namespace RunAndGun
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            Log.Message("get extra gizmos called");
+            //Log.Message("get extra gizmos called");
             if (pawn != null && pawn.Drafted && pawn.Faction.Equals(Faction.OfPlayer))
             {
                 foreach (Command com in GenerateGizmos())

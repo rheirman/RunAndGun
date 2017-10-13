@@ -1,2 +1,3 @@
 *.vs
 Source/RunAndGun/.vs/*
+Source/RunAndGun/obj/*
