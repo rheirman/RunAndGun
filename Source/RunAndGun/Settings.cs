@@ -8,7 +8,7 @@ using Verse;
 
 namespace RunAndGun
 {
-    public class Settings_RunAndGun : ModBase
+    public class Settings : ModBase
     {
         public override string ModIdentifier
         {
@@ -18,8 +18,8 @@ namespace RunAndGun
         private SettingHandle<int> movementPenalty;
         public override void DefsLoaded()
         {
-            accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "Accuracy penalty(%)".Translate(), "The accuracy penalty when run and gun is enabled".Translate(), 10);
-            movementPenalty = Settings.GetHandle<int>("movementPenalty", "Movement penalty(%)".Translate(), "The movement penalty when while shooting".Translate(), 15);
+            accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "RG_AccuracyPenalty_Title".Translate(), "RG_AccuracyPenalty_Description".Translate(), 10);
+            movementPenalty = Settings.GetHandle<int>("movementPenalty", "RG_MovementPenalty_Title".Translate(), "RG_MovementPenalty_Description".Translate(), 15);
         }
     }
 }

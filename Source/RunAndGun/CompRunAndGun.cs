@@ -13,7 +13,6 @@ namespace RunAndGun
     {
         // Fire mode variables
 
-        
         private Pawn pawn
         {
             get
@@ -33,7 +32,6 @@ namespace RunAndGun
 
         public override void Initialize(CompProperties props)
         {
-            Log.Message("init called");
             base.Initialize(props);
         }
 
@@ -60,11 +58,12 @@ namespace RunAndGun
         public IEnumerable<Command> GenerateGizmos()
         {
             String uiElement = isEnabled ? "disable_RG" : "enable_RG";
-            String description = isEnabled ? "Disable run and gun" : "Enables mode in which pawns can shoot while running. Shooting while running poses an accuracy penalty";
+            String label = isEnabled ? "RG_Action_Disable_Label".Translate() : "RG_Action_Enable_Label".Translate();
+            String description = isEnabled ? "RG_Action_Disable_Description".Translate() : "RG_Action_Enable_Description".Translate();
             Command_Action testActionGizmo = new Command_Action
             {
                 action = runAndGunAction,
-                defaultLabel = "Run and gun",
+                defaultLabel = label,
                 defaultDesc = description,
                 icon = ContentFinder<Texture2D>.Get(("UI/Buttons/" + uiElement), true),
                 tutorTag = null
@@ -75,34 +74,8 @@ namespace RunAndGun
 
         public void runAndGunAction()
         {
-            Log.Message("runAndGunAction called");
             isEnabled = !isEnabled;
-
         }
-
-        public void testAction()
-        {
-            Log.Message("testAction called");
-            // Copy-paste from GenExplosion
-
-
-            Explosion explosion = new Explosion();
-            explosion.position = pawn.Position;
-            explosion.radius = 15;
-            explosion.damType = DamageDefOf.Bomb;
-            explosion.instigator = pawn;
-            explosion.damAmount = GenMath.RoundRandom(1000);
-            explosion.weaponGear = null;
-            //explosion.preExplosionSpawnThingDef = null;
-            //explosion.preExplosionSpawnChance = 100;
-            //explosion.preExplosionSpawnThingCount = 1;
-            //explosion.postExplosionSpawnThingDef = Props.postExplosionSpawnThingDef;
-            //explosion.postExplosionSpawnChance = Props.postExplosionSpawnChance;
-            //explosion.postExplosionSpawnThingCount = Props.postExplosionSpawnThingCount;
-            //explosion.applyDamageToExplosionCellsNeighbors = Props.applyDamageToExplosionCellsNeighbors;
-            pawn.Map.GetComponent<ExplosionManager>().StartExplosion(explosion, DamageDefOf.Bomb.soundExplosion);
-        }
-
     }
 }
 
