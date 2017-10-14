@@ -18,7 +18,6 @@ namespace RunAndGun.Harmony
             {
                 return;
             }
-            Log.Message("stance: " + __instance.stances.curStance.ToString());
             if (__instance.stances.curStance is Stance_RunAndGun || __instance.stances.curStance is Stance_RunAndGun_Cooldown)
             {
                 ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");

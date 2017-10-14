@@ -45,7 +45,7 @@ namespace RunAndGun
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            if (pawn != null && pawn.Drafted && pawn.Faction.Equals(Faction.OfPlayer))
+            if (pawn != null && pawn.Drafted && pawn.Faction.Equals(Faction.OfPlayer) && WorkGiver_HunterHunt.HasHuntingWeapon(pawn))
             {
                 foreach (Command com in GenerateGizmos())
                 {

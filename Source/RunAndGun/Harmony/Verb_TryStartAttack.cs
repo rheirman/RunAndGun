@@ -9,7 +9,8 @@ using RimWorld;
 namespace RunAndGun.Harmony
 {
 
-
+    //TODO: reconsider if this patch is really necessary
+    /*
     [HarmonyPatch(typeof(Pawn_EquipmentTracker), "TryStartAttack")]
     static class Verb_TryStartAttack
     {
@@ -44,5 +45,7 @@ namespace RunAndGun.Harmony
             return false;
         }
     }
+    */
+
 
 }

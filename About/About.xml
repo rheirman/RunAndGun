@@ -2,8 +2,26 @@
 <ModMetaData>
 	<name>RunAndGun</name>
 	<author>Roolo</author>
-	<targetVersion>0.17.1546</targetVersion>
-	<description> 
-		Adds a mode to drafted pawns that, when enabled, allows them to shoot while moving with an accuracy penalty. 
-	</description>
+	<targetVersion>0.17.0</targetVersion>
+	<description> Your colonists can never be a true Rambo if they cannot gun while they are running. Therefore, this mod adds a mode that, when enabled, allows drafted colonists to shoot 
+while moving at the cost of an accuracy and movement penalty.
+These penalties can be modified in the mod settings of this mod.
+
+&lt;color=orange&gt;&lt;b&gt;Dependencies &lt;/b&gt;&lt;/color&gt;
+
+This mod depends on Hugslib, so make sure that mod loads before this mod does.
+
+&lt;color=orange&gt;&lt;b&gt;Compatibility &lt;/b&gt;&lt;/color&gt;
+
+This mod should be compatible with most other mods (including Combat Extended) 
+and should be compatible with existing saves. However, this is the first release, 
+so I can not guarantee this. 
+Please report any problems regarding mod incompatibility. 
+
+&lt;color=orange&gt;&lt;b&gt;Upcoming Features &lt;/b&gt;&lt;/color&gt;
+
+I would like to implement the following features but do not promise anything. 
+-Allowing the AI to make use of the Run and Gun mode. (highest priority)
+-Allowing melee weapons to be used while running
+	</description>	
 </ModMetaData>
