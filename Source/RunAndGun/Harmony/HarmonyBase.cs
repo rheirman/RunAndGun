@@ -259,22 +259,45 @@ namespace RunAndGun.Harmony
         {
             if (__instance.stances.curStance is Stance_RunAndGun || __instance.stances.curStance is Stance_RunAndGun_Cooldown)
             {
-                Log.Message("Calling tickspermove");
-                Log.Message("TicksPerMove was: " + __result.ToString());
+             
                 ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
                 int value = settings.GetHandle<int>("movementPenalty").Value;
-                Log.Message("Value: " + value);
-;
                 float factor = ((float)(100 + value) / 100);
-                Log.Message("Factor:" + factor);
-                
                 __result = (int)Math.Floor((float)__result * factor);
-                Log.Message("TicksPerMove now is: " + __result.ToString());
             }
 
         }
     }
 
+    //TODO: find a way to get the pawn from this method. 
+    [HarmonyPatch(typeof(VerbProperties), "AdjustedAccuracy")]
+    static class VerbProperties_AdjustedAccuracy
+    {
+        static void Postfix(VerbProperties __instance, ref Thing equipment, ref float __result)
+        {
+            Log.Message("HoldingOwner type: " + equipment.holdingOwner.Owner.GetType().ToString());
+            if (!(equipment.holdingOwner.Owner is Pawn_EquipmentTracker))
+            {
+                return; 
+            }
+            Pawn_EquipmentTracker eqt = (Pawn_EquipmentTracker) equipment.holdingOwner.Owner;
+            Pawn pawn = Traverse.Create(eqt).Field("pawn").GetValue<Pawn>();
+
+            if (pawn.stances.curStance is Stance_RunAndGun || pawn.stances.curStance is Stance_RunAndGun_Cooldown)
+            {
+                Log.Message("Accuracy was: " + __result.ToString());
+                ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
+                int value = settings.GetHandle<int>("accuracyPenalty").Value;
+                Log.Message("Value: " + value);
+
+                float factor = ((float)(100 - value) / 100);
+                Log.Message("Factor:" + factor);
+
+                __result *= factor;
+                Log.Message("Accuracy now is: " + __result.ToString());
+            }
+        }
+    }
 
 
 
