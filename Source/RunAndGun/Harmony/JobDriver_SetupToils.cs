@@ -44,11 +44,10 @@ namespace RunAndGun.Harmony
                 && (__instance.pawn.drafter == null || __instance.pawn.drafter.FireAtWill))
             {
                 CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
-                if (comp.isEnabled == false)
+                if (comp == null || comp.isEnabled == false)
                 {
                     return;
                 }
-
                 Verb verb = __instance.pawn.TryGetAttackVerb(true);
                 if (verb != null && !verb.verbProps.MeleeRange)
                 {
