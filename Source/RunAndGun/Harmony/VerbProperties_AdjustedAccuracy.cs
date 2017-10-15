@@ -17,13 +17,20 @@ namespace RunAndGun.Harmony
         static void Postfix(VerbProperties __instance, ref Thing equipment, ref float __result)
         {
 
-            if (!(equipment.holdingOwner.Owner is Pawn_EquipmentTracker))
+            if (equipment == null || equipment.holdingOwner == null || !(equipment.holdingOwner.Owner is Pawn_EquipmentTracker))
+            {
+                return;
+            }
+            if (equipment == null || equipment.holdingOwner == null || equipment.holdingOwner.Owner == null)
             {
                 return;
             }
             Pawn_EquipmentTracker eqt = (Pawn_EquipmentTracker)equipment.holdingOwner.Owner;
             Pawn pawn = Traverse.Create(eqt).Field("pawn").GetValue<Pawn>();
-
+            if(pawn == null || pawn.stances == null)
+            {
+                return;
+            }
             if (pawn.stances.curStance is Stance_RunAndGun || pawn.stances.curStance is Stance_RunAndGun_Cooldown)
             {
                 ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");

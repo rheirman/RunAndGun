@@ -14,7 +14,6 @@ namespace RunAndGun.Harmony
         static bool Prefix(Verb __instance, ref LocalTargetInfo castTarg, ref bool surpriseAttack, ref bool canFreeIntercept)
         {
             Pawn pawn = __instance.CasterPawn;
-
             if (__instance.caster == null)
             {
                 Log.Error("Verb " + __instance.GetUniqueLoadID() + " needs caster to work (possibly lost during saving/loading).");
@@ -30,9 +29,9 @@ namespace RunAndGun.Harmony
             }
             if (__instance.verbProps.CausesTimeSlowdown && castTarg.HasThing && (castTarg.Thing.def.category == ThingCategory.Pawn || (castTarg.Thing.def.building != null && castTarg.Thing.def.building.IsTurret)) && castTarg.Thing.Faction == Faction.OfPlayer && __instance.caster.HostileTo(Faction.OfPlayer))
             {
+
                 Find.TickManager.slower.SignalForceNormalSpeed();
             }
-
             if (__instance.CasterIsPawn)
             {
                 CompRunAndGun comp = pawn.TryGetComp<CompRunAndGun>();
@@ -41,16 +40,19 @@ namespace RunAndGun.Harmony
                     return true;
                 }
             }
+            if (!__instance.CasterIsPawn)
+            {
+                return true;
+            }
 
 
+            
             Traverse.Create(__instance).Field("surpriseAttack").SetValue(surpriseAttack);
             Traverse.Create(__instance).Field("canFreeInterceptNow").SetValue(canFreeIntercept);
             Traverse.Create(__instance).Field("currentTarget").SetValue(castTarg);
 
-
             if (__instance.CasterIsPawn && __instance.verbProps.warmupTime > 0f)
             {
-
                 ShootLine newShootLine;
                 if (!__instance.TryFindShootLineFromTo(__instance.caster.Position, castTarg, out newShootLine))
                 {
