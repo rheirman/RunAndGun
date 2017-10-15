@@ -33,6 +33,11 @@ namespace RunAndGun
         public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
+            Pawn pawn = (Pawn)(parent as Pawn);
+            if (!pawn.IsColonist)
+            {
+                isEnabled = true;
+            }
         }
 
         public override void PostExposeData()
