@@ -5,7 +5,7 @@
  <RG_MovementPenalty_Title>Movement penalty(%)</RG_MovementPenalty_Title>
  <RG_MovementPenalty_Description>The movement penalty while shooting</RG_MovementPenalty_Description>
  <RG_EnableRGForAI_Title>Enable Run And Gun for AI</RG_EnableRGForAI_Title>
- <RG_EnableRGForAI_Description>Enables Run And Gun for all AI pawns. Beware that this makes them incredibly deadly.</RG_EnableRGForAI_Description>
+ <RG_EnableRGForAI_Description>Enables Run And Gun for all AI pawns. Beware, this makes them incredibly deadly.</RG_EnableRGForAI_Description>
  <RG_Action_Enable_Label>Run and Gun!</RG_Action_Enable_Label>
  <RG_Action_Disable_Label>Disable Run and Gun</RG_Action_Disable_Label>
  <RG_Action_Disable_Description>Disables Run and Gun mode</RG_Action_Disable_Description>
