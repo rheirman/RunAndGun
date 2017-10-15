@@ -21,7 +21,7 @@ namespace RunAndGun
         {
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "RG_AccuracyPenalty_Title".Translate(), "RG_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(0, 100));
             movementPenalty = Settings.GetHandle<int>("movementPenalty", "RG_MovementPenalty_Title".Translate(), "RG_MovementPenalty_Description".Translate(), 35, Validators.IntRangeValidator(0, 100));
-            enableForAI = Settings.GetHandle<bool>("enableForAI", "RG_EnableForAI_Title".Translate(), "RG_EnableForAI_Description".Translate(), true);
+            enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
         }
     }
 }

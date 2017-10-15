@@ -61,7 +61,6 @@
     <Compile Include="Harmony\HarmonyBase.cs" />
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
     <Compile Include="Harmony\Verb_TryCastNextBurstShot.cs" />
-    <Compile Include="Harmony\Verb_TryStartAttack.cs" />
     <Compile Include="Harmony\Verb_TryStartCastOn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />

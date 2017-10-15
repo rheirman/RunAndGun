@@ -5,7 +5,8 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
-
+using HugsLib.Settings;
+using HugsLib;
 
 namespace RunAndGun
 {
@@ -34,8 +35,11 @@ namespace RunAndGun
         {
             base.Initialize(props);
             Pawn pawn = (Pawn)(parent as Pawn);
-            if (!pawn.IsColonist)
+            ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
+            bool enableRGForAI = settings.GetHandle<bool>("enableRGForAI").Value;
+            if (!pawn.IsColonist && enableRGForAI)
             {
+                Log.Message("Enable RG for AI!");
                 isEnabled = true;
             }
         }

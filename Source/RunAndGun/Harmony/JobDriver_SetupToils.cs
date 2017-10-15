@@ -24,7 +24,7 @@ namespace RunAndGun.Harmony
                     Toil toil = toils.ElementAt(0);
                     toil.AddPreTickAction(delegate
                     {
-                        if (__instance.pawn != null && __instance.pawn.IsColonist && __instance.pawn.Drafted && !__instance.pawn.Downed)
+                        if (__instance.pawn != null && (__instance.pawn.Drafted || !__instance.pawn.IsColonist) && !__instance.pawn.Downed)
                         {
                             checkForAutoAttack(__instance);
                         }
