@@ -7,8 +7,8 @@
 while moving at the cost of an accuracy and movement penalty.These penalties can be modified in the mod settings of this mod. 
 Some things to take into account: 
 - Fire at will should be enabled. Firing manually will cause the pawn to stop running. 
-- Run&Gun mode can only be enabled when the pawn is drafted, and is carrying a ranged weapon in its hands. 
-- The movement penalty is only applied at the moment the pawn is actually shooting or cooling down after shooting. So don't bother disabling Run&Gun every time you just want your pawn to walk somewhere. 
+- RunAndGun mode can only be enabled when the pawn is drafted, and is carrying a ranged weapon in its hands. 
+- The movement penalty is only applied at the moment the pawn is actually shooting or cooling down after shooting. So don't bother disabling RunAndGun every time you just want your pawn to walk somewhere. 
 
 &lt;color=orange&gt;&lt;b&gt;Dependencies &lt;/b&gt;&lt;/color&gt;
 
