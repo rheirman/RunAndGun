@@ -1,15 +1,15 @@
 # RunAndGun
 
-##Install
+## Install
 
 Download the zip from the master branch, unpack and place the unpacked folder in the Rimworld mods folder. 
 
-##Links
+## Links
 
 Mod info: https://ludeon.com/forums/index.php?topic=36061.0
 Steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1168979753
 
-##Contributing
+## Contributing
 
 Translations are always very welcome. Just create a pull request, preferably in the development branch. 
 
