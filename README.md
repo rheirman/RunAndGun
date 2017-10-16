@@ -14,6 +14,6 @@ Steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=116897975
 
 Translations are always very welcome. Just create a pull request, preferably in the development branch. 
 
-##Licence
+## Licence
 Feel free to add this mod to modpacks or to use the code or icons for other projects. 
 Do however not release exact copies of my project, or exact copies with minor adjustments without my consent. 
