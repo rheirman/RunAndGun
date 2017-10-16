@@ -19,13 +19,11 @@ This mod depends on Hugslib, so make sure that mod loads before this mod does.
 This mod should be compatible with existing saves, and removing the mod from saves shouldn't introduce problems. Moreover, this mod should be compatible with most other mods (including Combat Extended). However, keep in mind that this is hard to test for me by myself, and this is the first release.
 Therefore some issues regarding mod compatibility are bound to come up. Most issues that come up should be easy to fix, so please report any problems.  
 
+&lt;color=orange&gt;&lt;b&gt;V1.3&lt;/b&gt;&lt;/color&gt;
+Non human pawn can now also RunAndGun (including mechanoids). 
+
 &lt;color=orange&gt;&lt;b&gt;V1.2&lt;/b&gt;&lt;/color&gt;
 Added: AI can now also Run And Gun! If you like inequality, this can be disabled in the mod options. 
 
-&lt;color=orange&gt;&lt;b&gt;Upcoming Features &lt;/b&gt;&lt;/color&gt;
-
-I would like to implement the following features but do not promise anything. 
-- Make the movement penalty dependent on the gun that is being used (suggested by: Not Birthday Boy (Alfons)). 
--Allowing melee weapons to be used while running
 	</description>	
 </ModMetaData>
