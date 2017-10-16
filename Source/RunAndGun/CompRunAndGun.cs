@@ -39,7 +39,6 @@ namespace RunAndGun
             bool enableRGForAI = settings.GetHandle<bool>("enableRGForAI").Value;
             if (!pawn.IsColonist && enableRGForAI)
             {
-                Log.Message("Enable RG for AI!");
                 isEnabled = true;
             }
         }
