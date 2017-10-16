@@ -7,6 +7,7 @@ Download the zip from the master branch, unpack and place the unpacked folder in
 ## Links
 
 Mod info: https://ludeon.com/forums/index.php?topic=36061.0
+
 Steam workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1168979753
 
 ## Contributing
