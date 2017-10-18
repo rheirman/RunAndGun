@@ -19,11 +19,18 @@ This mod depends on Hugslib, so make sure that mod loads before this mod does.
 This mod should be compatible with existing saves, and removing the mod from saves shouldn't introduce problems. Moreover, this mod should be compatible with most other mods (including Combat Extended). However, keep in mind that this is hard to test for me by myself, and this is the first release.
 Therefore some issues regarding mod compatibility are bound to come up. Most issues that come up should be easy to fix, so please report any problems.  
 
-&lt;color=orange&gt;&lt;b&gt;V1.3&lt;/b&gt;&lt;/color&gt;
+&lt;color=orange&gt;&lt;b&gt;Latest releases&lt;/b&gt;&lt;/color&gt;
+
+- V1.5
+- Solved issue regarding melee weapon cooldowns for Running and Gunning pawns. 
+- Solved issue regarding null pointer exception being thrown after stance of pawn is loaded from save
+
+- V1.4
+Solved issue with weapon cooldown not working. 
+
+- V1.3
 Non human pawn can now also RunAndGun (including mechanoids). 
 
-&lt;color=orange&gt;&lt;b&gt;V1.2&lt;/b&gt;&lt;/color&gt;
-Added: AI can now also Run And Gun! If you like inequality, this can be disabled in the mod options. 
 
 	</description>	
 </ModMetaData>
