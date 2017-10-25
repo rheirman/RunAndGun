@@ -70,7 +70,7 @@ namespace RunAndGun.Harmony
             else
             {
                 __instance.state = VerbState.Idle;
-                __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance.ownerEquipment), currentTarget, __instance));
+                __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance, __instance.CasterPawn, __instance.ownerEquipment), currentTarget, __instance));
                 if (__instance.castCompleteCallback != null)
                 {
                     __instance.castCompleteCallback();
