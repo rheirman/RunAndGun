@@ -16,8 +16,8 @@ namespace RunAndGun.Harmony
     {
         static bool Prefix(Verb __instance)
         {
-
-            if (!__instance.CasterIsPawn || (!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun) && !(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)))
+            Log.Message("TryCastNextBurstShot");
+            if (!__instance.CasterIsPawn || (!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun) && !(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)) || __instance.verbProps.MeleeRange)
             {
                 return true;
             }
@@ -76,6 +76,11 @@ namespace RunAndGun.Harmony
                     __instance.castCompleteCallback();
                 }
             }
+            
+            if(!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)){
+                return true;
+            }
+
             return false;
         }
     }

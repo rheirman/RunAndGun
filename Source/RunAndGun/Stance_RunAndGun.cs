@@ -17,6 +17,9 @@ namespace RunAndGun
                 return false;
             }
         }
+        public Stance_RunAndGun()
+        {
+        }
         public Stance_RunAndGun(int ticks, LocalTargetInfo focusTarg, Verb verb) : base(ticks, focusTarg, verb)
         {
         }
