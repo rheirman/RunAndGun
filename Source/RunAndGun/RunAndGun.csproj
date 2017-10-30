@@ -56,7 +56,8 @@
   <ItemGroup>
     <Compile Include="CompRunAndGun.cs" />
     <Compile Include="CompProperties_RunAndGun.cs" />
-    <Compile Include="Harmony\JobDriver_SetupToils.cs" />
+    <Compile Include="Harmony\MentalState_PanicFlee_PostStart.cs" />
+    <Compile Include="Harmony\JobDriver_Goto_SetupToils.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
     <Compile Include="Harmony\HarmonyBase.cs" />
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
