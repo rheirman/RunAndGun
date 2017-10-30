@@ -67,6 +67,8 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Stance_RunAndGun_Cooldown.cs" />
     <Compile Include="Stance_RunAndGun.cs" />
+    <Compile Include="StringHashSetHandler.cs" />
+    <Compile Include="Utilities\MassComparer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
