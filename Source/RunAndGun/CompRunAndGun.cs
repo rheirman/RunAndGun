@@ -12,7 +12,6 @@ namespace RunAndGun
 {
     public class CompRunAndGun : ThingComp
     {
-        // Fire mode variables
 
         private Pawn pawn
         {
@@ -46,7 +45,7 @@ namespace RunAndGun
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref isEnabled, "currentFireMode", false);
+            Scribe_Values.Look(ref isEnabled, "runAndGun", false);
         }
 
 
