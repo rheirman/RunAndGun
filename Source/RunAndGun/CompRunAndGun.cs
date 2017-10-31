@@ -45,7 +45,7 @@ namespace RunAndGun
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look(ref isEnabled, "runAndGun", false);
+            Scribe_Values.Look(ref isEnabled, "RunAndGunEnabled", false);
         }
 
 
