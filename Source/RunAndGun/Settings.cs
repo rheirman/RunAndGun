@@ -43,22 +43,23 @@ namespace RunAndGun
             maxWeightRanged += 1;
             float maxWeightTotal = Math.Max(maxWeightMelee, maxWeightRanged);
 
+            enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
+            enableForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            enableForFleeChance.VisibilityPredicate = delegate { return enableForAI.Value; };
+
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "RG_AccuracyPenalty_Title".Translate(), "RG_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
+
             movementPenaltyHeavy = Settings.GetHandle<int>("movementPenaltyHeavy", "RG_MovementPenaltyHeavy_Title".Translate(), "RG_MovementPenaltyHeavy_Description".Translate(), 40, Validators.IntRangeValidator(minPercentage, maxPercentage));
             movementPenaltyLight = Settings.GetHandle<int>("movementPenaltyLight", "RG_MovementPenaltyLight_Title".Translate(), "RG_MovementPenaltyLight_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
 
-            enableForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
-
-            enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
-
-            weightLimitFilter = Settings.GetHandle<float>("LimitModeSingle_Absolute", "MaximumMassSingleAbsolute_title".Translate(), "MaximumMassSingleAbsolute_desc".Translate(), 3.4f);
+            weightLimitFilter = Settings.GetHandle<float>("weightLimitFilter", "RG_WeightLimitFilter_Title".Translate(), "RG_WeightLimitFilter_Description".Translate(), 3.4f);
             weightLimitFilter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Filter(rect, weightLimitFilter, applyFilter, false, 0, maxWeightTotal, highlight1); };
 
-            applyFilter = Settings.GetHandle<bool>("applyFilter", "RG_ApplyFilter_Title".Translate(), "RG_ApplyFilter_Description".Translate(), false);
+            applyFilter = Settings.GetHandle<bool>("applyFilter", "", "", false);
             applyFilter.VisibilityPredicate = delegate { return false; };
 
-            weaponSelecter = Settings.GetHandle<StringHashSetHandler>("LimitModeSingle_Selection", "WeaponSelection_title".Translate(), "WeaponSelection_desc".Translate(), null);
-            weaponSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponSelecter, highlight1, "ConsideredWeapons".Translate(), "NotConsideredWeapons".Translate()); };
+            weaponSelecter = Settings.GetHandle<StringHashSetHandler>("weaponSelecter", "RG_WeaponSelection_Title".Translate(), "RG_WeaponSelection_Description".Translate(), null);
+            weaponSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponSelecter, highlight1, "RG_ConsideredLight".Translate(), "RG_ConsideredHeavy".Translate()); };
 
         }
 

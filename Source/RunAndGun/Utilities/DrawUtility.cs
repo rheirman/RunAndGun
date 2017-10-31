@@ -141,7 +141,7 @@ namespace RunAndGun.Utilities
             return change;
         }
 
-        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, string yesText = "Weapons", string noText = "Not Weapons", bool excludeNeolithic = false)
+        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, string yesText = "Light", string noText = "Heavy", bool excludeNeolithic = false)
         {
             drawBackground(wholeRect, background);
 
