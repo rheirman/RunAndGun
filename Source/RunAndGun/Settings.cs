@@ -23,10 +23,11 @@ namespace RunAndGun
         private SettingHandle<int> movementPenalty;
         private SettingHandle<int> enableForFleeChance;
         private SettingHandle<bool> enableForAI;
-        internal static SettingHandle<StringHashSetHandler> LimitModeSingle_Selection;
+        internal static SettingHandle<StringHashSetHandler> weaponSelecter;
+        internal static SettingHandle<float> weightLimitFilter;
+        internal static SettingHandle<bool> applyFilter;
 
 
-        private const float weightLimit = 3.4f;
         private const float ContentPadding = 5f;
         private const float IconSize = 32f;
         private const float IconGap = 1f;
@@ -54,18 +55,22 @@ namespace RunAndGun
             maxWeightRanged += 1;
             float maxWeightTotal = Math.Max(maxWeightMelee, maxWeightRanged);
 
-
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "RG_AccuracyPenalty_Title".Translate(), "RG_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
             movementPenalty = Settings.GetHandle<int>("movementPenalty", "RG_MovementPenalty_Title".Translate(), "RG_MovementPenalty_Description".Translate(), 35, Validators.IntRangeValidator(minPercentage, maxPercentage));
             enableForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
+
             enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
-            LimitModeSingle_Selection = Settings.GetHandle<StringHashSetHandler>("LimitModeSingle_Selection", "SidearmSelection_title".Translate(), "SidearmSelection_desc".Translate(), null);
-            LimitModeSingle_Selection.CustomDrawer = rect => { return CustomDrawer_MatchingWeapons_active(rect, LimitModeSingle_Selection, highlight1, "ConsideredSidearms".Translate(), "NotConsideredSidearms".Translate()); };
-            //LimitModeSingle_Absolute = Settings.GetHandle<float>("LimitModeSingle_Absolute", "MaximumMassSingleAbsolute_title".Translate(), "MaximumMassSingleAbsolute_desc".Translate(), 0f);
-            //LimitModeSingle_Absolute.CustomDrawer = rect => { return CustomDrawer_FloatSlider(rect, LimitModeSingle_Absolute, false, 0, maxWeightTotal, highlight1); };
+
+            weightLimitFilter = Settings.GetHandle<float>("LimitModeSingle_Absolute", "MaximumMassSingleAbsolute_title".Translate(), "MaximumMassSingleAbsolute_desc".Translate(), 3.4f);
+            weightLimitFilter.CustomDrawer = rect => { return CustomDrawer_Filter(rect, weightLimitFilter, applyFilter, false, 0, maxWeightTotal, highlight1); };
+
+            applyFilter = Settings.GetHandle<bool>("applyFilter", "RG_ApplyFilter_Title".Translate(), "RG_ApplyFilter_Description".Translate(), false);
+            applyFilter.VisibilityPredicate = delegate { return false; };
+
+            weaponSelecter = Settings.GetHandle<StringHashSetHandler>("LimitModeSingle_Selection", "WeaponSelection_title".Translate(), "WeaponSelection_desc".Translate(), null);
+            weaponSelecter.CustomDrawer = rect => { return CustomDrawer_MatchingWeapons_active(rect, weaponSelecter, highlight1, "ConsideredWeapons".Translate(), "NotConsideredWeapons".Translate()); };
 
         }
-
 
         private static void drawBackground(Rect rect, Color background)
         {
@@ -105,9 +110,6 @@ namespace RunAndGun
 
             var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, IconSize, IconSize);
 
-            //if (!contentRect.Contains(iconRect))
-              //  return false;
-
             string label = weapon.label;
 
             TooltipHandler.TipRegion(iconRect, label);
@@ -116,13 +118,11 @@ namespace RunAndGun
             {
                 GUI.color = iconMouseOverColor;
                 GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("drawPocket", true));
-                //Graphics.DrawTexture(iconRect, TextureResources.drawPocket, new Rect(0, 0, 1f, 1f), 0, 0, 0, 0, iconMouseOverColor);
             }
             else
             {
                 GUI.color = iconBaseColor;
                 GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("drawPocket", true));
-                //Graphics.DrawTexture(iconRect, TextureResources.drawPocket, new Rect(0, 0, 1f, 1f), 0, 0, 0, 0, iconBaseColor);
             }
 
             Texture resolvedIcon;
@@ -214,17 +214,12 @@ namespace RunAndGun
             }
         }
 
-
-        public static bool CustomDrawer_FloatSlider(Rect rect, SettingHandle<float> setting, bool def_isPercentage, float def_min, float def_max, Color background)
+        public static bool CustomDrawer_Filter(Rect rect, SettingHandle<float> slider, SettingHandle<bool> button, bool def_isPercentage, float def_min, float def_max, Color background)
         {
             drawBackground(rect, background);
-            /*if (setting.Value == null)
-                setting.Value = new IntervalSliderHandler(def_isPercentage, def_value, def_min, def_max);
-            if (setting.Value.setup == false)
-                setting.Value = new IntervalSliderHandler(def_isPercentage, setting.Value, def_min, def_max);*/
 
             Rect sliderPortion = new Rect(rect);
-            sliderPortion.width = sliderPortion.width - 50;
+            sliderPortion.width = sliderPortion.width - 120;
             Rect labelPortion = new Rect(rect);
             labelPortion.width = 50;
             labelPortion.position = new Vector2(sliderPortion.position.x + sliderPortion.width + 5f, sliderPortion.position.y + 4f);
@@ -232,22 +227,33 @@ namespace RunAndGun
             sliderPortion = sliderPortion.ContractedBy(2f);
 
             if (def_isPercentage)
-                Widgets.Label(labelPortion, (Mathf.Round(setting.Value * 100f)).ToString("F0") + "%");
+                Widgets.Label(labelPortion, (Mathf.Round(slider.Value * 100f)).ToString("F0") + "%");
             else
-                Widgets.Label(labelPortion, setting.Value.ToString("F2"));
+                Widgets.Label(labelPortion, slider.Value.ToString("F2"));
 
-            float val = Widgets.HorizontalSlider(sliderPortion, setting.Value, def_min, def_max, true);
+            float val = Widgets.HorizontalSlider(sliderPortion, slider.Value, def_min, def_max, true);
             bool change = false;
 
-            if (setting.Value != val)
+            if (slider.Value != val)
                 change = true;
 
-            setting.Value = val;
+            slider.Value = val;
+
+            Rect buttonRect = new Rect(rect);
+            buttonRect.width = 70;
+            buttonRect.position = new Vector2(labelPortion.position.x + labelPortion.width + 5f, sliderPortion.position.y + 4f);
+
+            bool clicked = Widgets.ButtonText(buttonRect, "RG_Button_Apply".Translate());
+            if (clicked)
+            {
+                button.Value = true;
+                return true;
+            }
 
             return change;
         }
 
-        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, string yesText = "Sidearms", string noText = "Not sidearms", bool excludeNeolithic = false)
+        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, string yesText = "Weapons", string noText = "Not Weapons", bool excludeNeolithic = false)
         {
             drawBackground(wholeRect, background);
 
@@ -276,18 +282,19 @@ namespace RunAndGun
             allWeapons.Sort(new MassComparer());
 
 
-            if (setting.Value == null)
+            if (setting.Value == null || applyFilter.Value == true)
             {
                 setting.Value = new StringHashSetHandler();
                 for (int i = 0; i < allWeapons.Count; i++)
                 {
 
                         float mass = allWeapons[i].thing.GetStatValueAbstract(StatDefOf.Mass);
-                        if (mass <= weightLimit)
+                        if (mass <= weightLimitFilter.Value)
                         {
                             setting.Value.InnerList.Add(allWeapons[i].thing.defName);
                         }
                 }
+                applyFilter.Value = false;
 
             }
             HashSet<string> selection = setting.Value.InnerList;
@@ -305,16 +312,16 @@ namespace RunAndGun
                 }
             }
 
-            List<ThingStuffPair> unselectedSidearms = new List<ThingStuffPair>();
+            List<ThingStuffPair> unselectedWeapons = new List<ThingStuffPair>();
             for (int i = 0; i < allWeapons.Count; i++)
             {
                 if (!selection.Contains(allWeapons[i].thing.defName))
-                    unselectedSidearms.Add(allWeapons[i]);
+                    unselectedWeapons.Add(allWeapons[i]);
             }
 
             bool change = false;
 
-            int biggerRows = Math.Max((selection.Count - 1) / iconsPerRow, (unselectedSidearms.Count - 1) / iconsPerRow) + 1;
+            int biggerRows = Math.Max((selection.Count - 1) / iconsPerRow, (unselectedWeapons.Count - 1) / iconsPerRow) + 1;
             setting.CustomDrawerHeight = (biggerRows * IconSize) + ((biggerRows) * IconGap) + TextMargin;
 
             for (int i = 0; i < selectionAsList.Count; i++)
@@ -332,15 +339,15 @@ namespace RunAndGun
                     selection.Remove(selectionAsList[i]);
                 }
             }
-            for (int i = 0; i < unselectedSidearms.Count; i++)
+            for (int i = 0; i < unselectedWeapons.Count; i++)
             {
                 int collum = (i % iconsPerRow);
                 int row = (i / iconsPerRow);
-                bool interacted = DrawIconForWeapon(unselectedSidearms[i].thing, rightRect, new Vector2(IconSize * collum + collum * IconGap, IconSize * row + row * IconGap), i);
+                bool interacted = DrawIconForWeapon(unselectedWeapons[i].thing, rightRect, new Vector2(IconSize * collum + collum * IconGap, IconSize * row + row * IconGap), i);
                 if (interacted)
                 {
                     change = true;
-                    selection.Add(unselectedSidearms[i].thing.defName);
+                    selection.Add(unselectedWeapons[i].thing.defName);
                 }
             }
             if (change)
