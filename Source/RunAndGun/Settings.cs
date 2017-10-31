@@ -18,10 +18,11 @@ namespace RunAndGun
         {
             get { return "RunAndGun"; }
         }
-        private SettingHandle<int> accuracyPenalty;
-        private SettingHandle<int> movementPenalty;
-        private SettingHandle<int> enableForFleeChance;
-        private SettingHandle<bool> enableForAI;
+        internal static SettingHandle<int> accuracyPenalty;
+        internal static SettingHandle<int> movementPenaltyHeavy;
+        internal static SettingHandle<int> movementPenaltyLight;
+        internal static SettingHandle<int> enableForFleeChance;
+        internal static SettingHandle<bool> enableForAI;
         internal static SettingHandle<StringHashSetHandler> weaponSelecter;
         internal static SettingHandle<float> weightLimitFilter;
         internal static SettingHandle<bool> applyFilter;
@@ -43,7 +44,9 @@ namespace RunAndGun
             float maxWeightTotal = Math.Max(maxWeightMelee, maxWeightRanged);
 
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "RG_AccuracyPenalty_Title".Translate(), "RG_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
-            movementPenalty = Settings.GetHandle<int>("movementPenalty", "RG_MovementPenalty_Title".Translate(), "RG_MovementPenalty_Description".Translate(), 35, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            movementPenaltyHeavy = Settings.GetHandle<int>("movementPenaltyHeavy", "RG_MovementPenaltyHeavy_Title".Translate(), "RG_MovementPenaltyHeavy_Description".Translate(), 40, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            movementPenaltyLight = Settings.GetHandle<int>("movementPenaltyLight", "RG_MovementPenaltyLight_Title".Translate(), "RG_MovementPenaltyLight_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
+
             enableForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
 
             enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
