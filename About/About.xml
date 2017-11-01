@@ -21,15 +21,16 @@ Therefore some issues regarding mod compatibility are bound to come up. Most iss
 
 &lt;color=orange&gt;&lt;b&gt;Latest releases&lt;/b&gt;&lt;/color&gt;
 
-- V1.5
-- Solved issue regarding melee weapon cooldowns for Running and Gunning pawns. 
-- Solved issue regarding null pointer exception being thrown after stance of pawn is loaded from save
+V2.1
+- The RunAndGun movement penalty now depends on how heavy weapons are. What are considered heavy weapons and the penalty per weapon type can be configured in the mod options. 
+- Added a mod option that can be used to set the chance that enemy pawns will use RunAndGun while fleeing. 
+- Improved compatibility with non-human races. 
+- Fixed problem with new version of hugslib.
+- Changed the position of the RunAndGun button. 
 
-- V1.4
-Solved issue with weapon cooldown not working. 
+V2.0
+- Made RunAndGun A18 compatible
 
-- V1.3
-Non human pawn can now also RunAndGun (including mechanoids). 
 
 
 	</description>	
