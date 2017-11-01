@@ -53,15 +53,22 @@ namespace RunAndGun.Utilities
             return Color.white;
         }
 
+
+
+
         private static bool DrawIconForWeapon(ThingDef weapon, Rect contentRect, Vector2 iconOffset, int buttonID)
         {
             var iconTex = weapon.uiIcon;
+
             Graphic g = weapon.graphicData.Graphic;
             Color color = getColor(weapon);
             Color colorTwo = getColor(weapon);
             Graphic g2 = weapon.graphicData.Graphic.GetColoredVersion(g.Shader, color, colorTwo);
 
             var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, IconSize, IconSize);
+
+            if (!contentRect.Contains(iconRect))
+                return false;
 
             string label = weapon.label;
 
@@ -70,12 +77,12 @@ namespace RunAndGun.Utilities
             if (Mouse.IsOver(iconRect))
             {
                 GUI.color = iconMouseOverColor;
-                GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("drawPocket", true));
+                GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("square", true));
             }
             else
             {
                 GUI.color = iconBaseColor;
-                GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("drawPocket", true));
+                GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("square", true));
             }
 
             Texture resolvedIcon;
@@ -220,18 +227,21 @@ namespace RunAndGun.Utilities
                 }
                 int collum = (i % iconsPerRow);
                 int row = (i / iconsPerRow);
+
                 bool interacted = DrawIconForWeapon(selectionThingDefs[i], leftRect, new Vector2(IconSize * collum + collum * IconGap, IconSize * row + row * IconGap), i);
                 if (interacted)
                 {
                     change = true;
                     selection.Remove(selectionAsList[i]);
                 }
+
             }
             for (int i = 0; i < unselectedWeapons.Count; i++)
             {
                 int collum = (i % iconsPerRow);
                 int row = (i / iconsPerRow);
                 bool interacted = DrawIconForWeapon(unselectedWeapons[i].thing, rightRect, new Vector2(IconSize * collum + collum * IconGap, IconSize * row + row * IconGap), i);
+
                 if (interacted)
                 {
                     change = true;

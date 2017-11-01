@@ -10,7 +10,6 @@
  <RG_EnableRGForAI_Description>Enables Run And Gun for all AI pawns. Beware, this makes them incredibly deadly.</RG_EnableRGForAI_Description>
  <RG_EnableRGForFleeChance_Title>Flee and gun chance(%)</RG_EnableRGForFleeChance_Title>
  <RG_EnableRGForFleeChance_Description>Chance that fleeing enemy pawns will use RunAndGun while fleeing</RG_EnableRGForFleeChance_Description>
- <RG_EnableRGForAI_Description>The chance that enemy pawns use run and gun while fleeing</RG_EnableRGForAI_Description>
  <RG_WeightLimitFilter_Title>Filter heavy/light by weight limit</RG_WeightLimitFilter_Title>
  <RG_WeightLimitFilter_Description>Use the slider to set the weight limit that is used for the filter. When apply is clicked, weapons are categorised as heavy or light based on this weight limit. Heavy weapons get a different movement penalty then light weapons. </RG_WeightLimitFilter_Description>
  <RG_WeaponSelection_Title>Which weapons are light/heavy? \n(used for movement penalty)</RG_WeaponSelection_Title>
