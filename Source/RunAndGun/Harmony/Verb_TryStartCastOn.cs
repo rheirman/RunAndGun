@@ -64,10 +64,6 @@ namespace RunAndGun.Harmony
                 __instance.CasterPawn.Drawer.Notify_WarmingCastAlongLine(newShootLine, __instance.caster.Position);
                 float statValue = __instance.CasterPawn.GetStatValue(StatDefOf.AimingDelayFactor, true);
                 int ticks = (__instance.verbProps.warmupTime * statValue).SecondsToTicks();
-                if (!__instance.CasterPawn.IsColonist)
-                {
-                    Log.Message("setting run and gun stance for ai pawn");
-                }
                 __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun(ticks, castTarg, __instance));
             }
             else

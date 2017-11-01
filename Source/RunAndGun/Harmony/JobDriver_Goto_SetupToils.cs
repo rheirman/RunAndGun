@@ -11,27 +11,23 @@ using RimWorld;
 namespace RunAndGun.Harmony
 {
     [HarmonyPatch(typeof(JobDriver_Goto), "SetupToils")]
-    static class JobDriver_SetupToils
+    static class JobDriver_Goto_SetupToils
     {
         static void Postfix(JobDriver_Goto __instance)
         {
-            if (__instance is JobDriver_Goto)
+            List<Toil> toils = Traverse.Create(__instance).Field("toils").GetValue<List<Toil>>();
+            if (toils.Count() > 0)
             {
-                List<Toil> toils = Traverse.Create(__instance).Field("toils").GetValue<List<Toil>>();
-                if (toils.Count() > 0)
+
+                Toil toil = toils.ElementAt(0);
+                toil.AddPreTickAction(delegate
                 {
-
-                    Toil toil = toils.ElementAt(0);
-                    toil.AddPreTickAction(delegate
+                    if (__instance.pawn != null && (__instance.pawn.Drafted || !__instance.pawn.IsColonist) && !__instance.pawn.Downed)
                     {
-                        if (__instance.pawn != null && (__instance.pawn.Drafted || !__instance.pawn.IsColonist) && !__instance.pawn.Downed)
-                        {
-                            checkForAutoAttack(__instance);
-                        }
-                    });
+                        checkForAutoAttack(__instance);
+                    }
+                });
 
-
-                }
 
             }
         }

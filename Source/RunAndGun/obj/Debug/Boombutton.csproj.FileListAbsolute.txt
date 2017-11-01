@@ -1,3 +1,0 @@
-C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Boombutton\Source\Boombutton\obj\Debug\Boombutton.csproj.CoreCompileInputs.cache
-C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Boombutton\Assemblies\Boombutton.dll
-C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Boombutton\Source\Boombutton\obj\Debug\Boombutton.dll

@@ -56,9 +56,11 @@
   <ItemGroup>
     <Compile Include="CompRunAndGun.cs" />
     <Compile Include="CompProperties_RunAndGun.cs" />
-    <Compile Include="Harmony\JobDriver_SetupToils.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Harmony\MentalState_PanicFlee_PostStart.cs" />
+    <Compile Include="Harmony\JobDriver_Goto_SetupToils.cs" />
+    <Compile Include="Harmony\Pawn_GetGizmos.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
-    <Compile Include="Harmony\HarmonyBase.cs" />
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
     <Compile Include="Harmony\Verb_TryCastNextBurstShot.cs" />
     <Compile Include="Harmony\Verb_TryStartCastOn.cs" />
@@ -66,6 +68,10 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Stance_RunAndGun_Cooldown.cs" />
     <Compile Include="Stance_RunAndGun.cs" />
+    <Compile Include="StringHashSetHandler.cs" />
+    <Compile Include="Utilities\DrawUtility.cs" />
+    <Compile Include="Utilities\MassComparer.cs" />
+    <Compile Include="Utilities\WeaponUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
