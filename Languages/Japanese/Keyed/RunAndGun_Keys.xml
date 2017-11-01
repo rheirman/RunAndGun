@@ -2,14 +2,33 @@
 <LanguageData>
 
   <RG_AccuracyPenalty_Title>命中精度ペナルティ(%)</RG_AccuracyPenalty_Title>
-  <RG_AccuracyPenalty_Description>MOD有効中に受ける命中精度ペナルティ</RG_AccuracyPenalty_Description>
-  <RG_MovementPenalty_Title>移動ペナルティ(%)</RG_MovementPenalty_Title>
-  <RG_MovementPenalty_Description>MOD有効中に受ける射撃中の移動ペナルティ</RG_MovementPenalty_Description>
-  <RG_EnableRGForAI_Title>AIもRunAndGunを有効化する</RG_EnableRGForAI_Title>
-  <RG_EnableRGForAI_Description>すべてのAIポーンにRun And Gunを適用します。注意してください、このオプションは彼らを信じられないほど致命的な脅威にします。</RG_EnableRGForAI_Description>
-  <RG_Action_Enable_Label>移動射撃ON</RG_Action_Enable_Label>
-  <RG_Action_Disable_Label>移動射撃OFF</RG_Action_Disable_Label>
+  <RG_AccuracyPenalty_Description>移動射撃中に受ける命中精度のペナルティ</RG_AccuracyPenalty_Description>
+
+  <RG_MovementPenaltyHeavy_Title>重火器の移動ペナルティ (%)</RG_MovementPenaltyHeavy_Title>
+  <RG_MovementPenaltyHeavy_Description>重火器の場合に受ける移動射撃中の移動ペナルティ</RG_MovementPenaltyHeavy_Description>
+  <RG_MovementPenaltyLight_Title>軽火器の移動ペナルティ (%)</RG_MovementPenaltyLight_Title>
+  <RG_MovementPenaltyLight_Description>軽火器の場合に受ける移動射撃中の移動ペナルティ</RG_MovementPenaltyLight_Description>
+
+  <RG_EnableRGForAI_Title>AIもRunAndGunを使用する</RG_EnableRGForAI_Title>
+  <RG_EnableRGForAI_Description>チェックを入れるとすべてのAIポーンにもRunAndGunを適用します。注意してください、このオプションは彼らを信じられないほど致命的な脅威にします。</RG_EnableRGForAI_Description>
+  <RG_EnableRGForFleeChance_Title>逃亡中の射撃確率(%)</RG_EnableRGForFleeChance_Title>
+  <RG_EnableRGForFleeChance_Description>敵のポーンが逃亡中にRunAndGunを使用する可能性です。</RG_EnableRGForFleeChance_Description>
+
+  <RG_WeightLimitFilter_Title>重量制限で重火器/軽火器をフィルターします</RG_WeightLimitFilter_Title>
+  <RG_WeightLimitFilter_Description>スライダを使用して、フィルタに使用される重量制限を設定します。適用ボタンをクリックすると、この重量制限に基づいて武器が重火器または軽火器に分類されます。重火器は軽火器とは違った移動ペナルティを受けます。 </RG_WeightLimitFilter_Description>
+
+  <RG_WeaponSelection_Title>軽火器/重火器のどちらですか？\n(移動ペナルティ用)</RG_WeaponSelection_Title>
+  <RG_WeaponSelection_Description>武器をクリックする事で入れ替えて、移動ペナルティが適用された際に、その武器が重火器扱いなのか軽火器扱いなのかを設定します</RG_WeaponSelection_Description>
+
+  <RG_Button_Apply>適用</RG_Button_Apply>
+
+  <RG_ConsideredLight>軽火器</RG_ConsideredLight>
+  <RG_ConsideredHeavy>重火器</RG_ConsideredHeavy>
+
+  <RG_Action_Enable_Label>移動射撃OFF</RG_Action_Enable_Label>
+  <RG_Action_Disable_Label>移動射撃ON</RG_Action_Disable_Label>
   <RG_Action_Disable_Description>移動射撃モードを無効化</RG_Action_Disable_Description>
   <RG_Action_Enable_Description>このRunAndGunを有効にすると、ポーンが移動しながら射撃できるモードになります。走っている間に射撃を行うと射撃武器の命中精度とポーンの移動にペナルティが発生します。</RG_Action_Enable_Description>
+
 
 </LanguageData>
