@@ -17,7 +17,6 @@ namespace RunAndGun.Harmony
     {
         static void Postfix(MentalState __instance)
         {
-            Log.Message("MentalState PanicFlee PostStart");
             CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
             if (comp != null)
             {
@@ -32,12 +31,10 @@ namespace RunAndGun.Harmony
             int chance = settings.GetHandle<int>("enableRGForFleeChance").Value;
             if (rndInt <= chance)
             {
-                Log.Message("RG enabled while fleeing, rndInt: " + rndInt);
                 return true;
             }
             else
             {
-                Log.Message("RG disabled while fleeing, rndInt: " + rndInt);
                 return false;
             }
 

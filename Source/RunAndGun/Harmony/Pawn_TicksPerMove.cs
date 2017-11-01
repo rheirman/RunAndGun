@@ -24,12 +24,10 @@ namespace RunAndGun.Harmony
                 int penalty = 0;
                 if (hasLightWeapon(__instance))
                 {
-                    Log.Message("pawn has light weapon");
                     penalty = Settings.movementPenaltyLight;
                 }
                 else
                 {
-                    Log.Message("pawn has heavy weapon");
                     penalty = Settings.movementPenaltyHeavy;
                 }
                 float factor = ((float)(100 + penalty) / 100);
