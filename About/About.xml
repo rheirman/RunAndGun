@@ -25,7 +25,6 @@ V1.6
 - The RunAndGun movement penalty now depends on how heavy weapons are. What are considered heavy weapons and the penalty per weapon type can be configured in the mod options. 
 - Added a mod option that can be used to set the chance that enemy pawns will use RunAndGun while fleeing. 
 - Improved compatibility with non-human races. 
-- Fixed problem with new version of hugslib.
 - Changed the position of the RunAndGun button. 
 
 V1.5
