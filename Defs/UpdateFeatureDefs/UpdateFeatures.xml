@@ -14,5 +14,6 @@
 - Improved compatibility with non-human races. 
 - Fixed problem with new version of hugslib.
 - Changed the position of the RunAndGun button. 
+		</content>
 	</HugsLib.UpdateFeatureDef>
 </Defs>
