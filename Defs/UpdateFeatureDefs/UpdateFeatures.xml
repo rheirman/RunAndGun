@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>RunAndGun</modNameReadable>
+		<modIdentifier>RunAndGun</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=36061.0</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>RunAndGun_1_17_6</defName>
+		<assemblyVersion>1.17.6</assemblyVersion>
+		<content>RunAndGun has been updated with the following changes: 
+- The RunAndGun movement penalty now depends on how heavy weapons are. What are considered heavy weapons and the penalty per weapon type can be configured in the mod options. 
+- Added a mod option that can be used to set the chance that enemy pawns will use RunAndGun while fleeing. 
+- Improved compatibility with non-human races. 
+- Fixed problem with new version of hugslib.
+- Changed the position of the RunAndGun button. 
+	</HugsLib.UpdateFeatureDef>
+</Defs>
