@@ -24,6 +24,7 @@ namespace RunAndGun
         internal static SettingHandle<int> enableForFleeChance;
         internal static SettingHandle<bool> enableForAI;
         internal static SettingHandle<StringHashSetHandler> weaponSelecter;
+
         internal static SettingHandle<float> weightLimitFilter;
         internal static SettingHandle<bool> applyFilter;
 
@@ -59,8 +60,31 @@ namespace RunAndGun
             applyFilter.VisibilityPredicate = delegate { return false; };
 
             weaponSelecter = Settings.GetHandle<StringHashSetHandler>("weaponSelecter", "RG_WeaponSelection_Title".Translate(), "RG_WeaponSelection_Description".Translate(), null);
+            if(weaponSelecter.Value == null)
+            {
+                weaponSelecter.Value = new StringHashSetHandler();
+                weaponSelecter.Value.InnerList = getDefaultForWeaponSelecter();
+            }
+
             weaponSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponSelecter, highlight1, "RG_ConsideredLight".Translate(), "RG_ConsideredHeavy".Translate()); };
 
+        }
+
+        private HashSet<string> getDefaultForWeaponSelecter()
+        {
+            List<ThingStuffPair> allWeapons = WeaponUtility.getAllWeapons();
+            allWeapons.Sort(new MassComparer());
+            HashSet<String> result = new HashSet<string>();
+            for (int i = 0; i < allWeapons.Count; i++)
+            {
+
+                float mass = allWeapons[i].thing.GetStatValueAbstract(StatDefOf.Mass);
+                if (mass <= weightLimitFilter.Value)
+                {
+                    result.Add(allWeapons[i].thing.defName);
+                }
+            }
+            return result;
         }
 
         
