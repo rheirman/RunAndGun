@@ -20,15 +20,14 @@ namespace RunAndGun.Harmony
             }
             if (__instance.stances.curStance is Stance_RunAndGun || __instance.stances.curStance is Stance_RunAndGun_Cooldown)
             {
-                ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
                 int penalty = 0;
                 if (hasLightWeapon(__instance))
                 {
-                    penalty = Settings.movementPenaltyLight;
+                    penalty = Settings.movementPenaltyLight.Value;
                 }
                 else
                 {
-                    penalty = Settings.movementPenaltyHeavy;
+                    penalty = Settings.movementPenaltyHeavy.Value;
                 }
                 float factor = ((float)(100 + penalty) / 100);
                 __result = (int)Math.Floor((float)__result * factor);
