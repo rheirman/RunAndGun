@@ -17,7 +17,7 @@
  <RG_Button_Apply>Apply</RG_Button_Apply>
  <RG_ConsideredLight>Light weapons</RG_ConsideredLight>
  <RG_ConsideredHeavy>Heavy weapons</RG_ConsideredHeavy>
- <RG_Action_Enable_Label>Run and Gun!</RG_Action_Enable_Label>
+ <RG_Action_Enable_Label>Run and Gun</RG_Action_Enable_Label>
  <RG_Action_Disable_Label>Disable Run and Gun</RG_Action_Disable_Label>
  <RG_Action_Disable_Description>Disables Run and Gun mode</RG_Action_Disable_Description>
  <RG_Action_Enable_Description>Enables Run and Gun, a mode in which pawns can shoot while running. Shooting while running causes an accuracy and movement penalty</RG_Action_Enable_Description>
