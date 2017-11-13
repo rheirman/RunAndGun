@@ -18,7 +18,7 @@ namespace RunAndGun.Harmony
         static void Postfix(MentalState __instance)
         {
             CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
-            if (comp != null)
+            if (comp != null && Settings.enableForAI.Value)
             {
                 comp.isEnabled = shouldRunAndGun();
 
