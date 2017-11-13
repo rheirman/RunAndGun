@@ -32,7 +32,7 @@ namespace RunAndGun.Harmony
             }
 
             String uiElement = "enable_RG";
-            String label = data.isEnabled ? "RG_Action_Disable_Label".Translate() : "RG_Action_Enable_Label".Translate();
+            String label = "RG_Action_Enable_Label".Translate();
             String description = data.isEnabled ? "RG_Action_Disable_Description".Translate() : "RG_Action_Enable_Description".Translate();
 
 

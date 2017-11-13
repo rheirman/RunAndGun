@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <RG_AccuracyPenalty_Title>Штраф к точности(%)</RG_AccuracyPenalty_Title>
+ <RG_AccuracyPenalty_Description>Штраф к точности при "беги и стреляй" включен</RG_AccuracyPenalty_Description>
+ <RG_MovementPenalty_Title>Штраф к передвижению(%)</RG_MovementPenalty_Title>
+ <RG_MovementPenalty_Description>Штраф к передвижению во время стрельбы</RG_MovementPenalty_Description>
+ <RG_EnableRGForAI_Title>Включить "беги и стреляй" для ИИ</RG_EnableRGForAI_Title>
+ <RG_EnableRGForAI_Description>Включает "беги и стреляй" для всех пешек ИИ. Остерегайтесь, это делает их невероятно смертоносными.</RG_EnableRGForAI_Description>
+ <RG_Action_Enable_Label>Беги и Стреляй!</RG_Action_Enable_Label>
+ <RG_Action_Disable_Label>Отключить Беги и Стреляй</RG_Action_Disable_Label>
+ <RG_Action_Disable_Description>Отключить мод Беги и Стреляй</RG_Action_Disable_Description>
+ <RG_Action_Enable_Description>Включает Беги и стреляй, режим, в котором пешки могут стрелять во время бега. Стрельба во время бега вызывает штрафы к точности и передвижению.</RG_Action_Enable_Description>
+ 
+</LanguageData>

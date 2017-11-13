@@ -79,17 +79,12 @@ namespace RunAndGun.Harmony
             else
             {
                 __instance.state = VerbState.Idle;
-
-                Log.Message("curjob: " + __instance.CasterPawn.jobs.curJob.def.defName);
-
                 if (__instance.CasterPawn.jobs.curJob.def.Equals(JobDefOf.Goto))
                 {
-                    Log.Message("start runandgun cooldown");
                     __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance, __instance.CasterPawn, __instance.ownerEquipment), currentTarget, __instance));
                 }
                 else
                 {
-                    Log.Message("start normal cooldown");
                     __instance.CasterPawn.stances.SetStance(new Stance_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance, __instance.CasterPawn, __instance.ownerEquipment), currentTarget, __instance));
                 }
                 if (__instance.castCompleteCallback != null)
