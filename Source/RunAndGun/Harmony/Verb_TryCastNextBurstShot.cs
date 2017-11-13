@@ -63,13 +63,34 @@ namespace RunAndGun.Harmony
 
                 if (__instance.CasterIsPawn)
                 {
-                    __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
+                    Log.Message("curjob: " + __instance.CasterPawn.jobs.curJob.def.defName);
+                    if(__instance.CasterPawn.jobs.curJob.def.Equals(JobDefOf.Goto))
+                    {
+                        Log.Message("start runandgun cooldown");
+                        __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
+                    }
+                    else
+                    {
+                        Log.Message("start normal cooldown");
+                        __instance.CasterPawn.stances.SetStance(new Stance_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
+                    }
                 }
             }
             else
             {
                 __instance.state = VerbState.Idle;
-                __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance.ownerEquipment), currentTarget, __instance));
+                Log.Message("curjob: " + __instance.CasterPawn.jobs.curJob.def.defName);
+
+                if (__instance.CasterPawn.jobs.curJob.def.Equals(JobDefOf.Goto))
+                {
+                    Log.Message("start runandgun cooldown");
+                    __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance.ownerEquipment), currentTarget, __instance));
+                }
+                else
+                {
+                    Log.Message("start normal cooldown");
+                    __instance.CasterPawn.stances.SetStance(new Stance_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance.ownerEquipment), currentTarget, __instance));
+                }
                 if (__instance.castCompleteCallback != null)
                 {
                     __instance.castCompleteCallback();
