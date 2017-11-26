@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
   <RG_AccuracyPenalty_Title>命中精度ペナルティ(%)</RG_AccuracyPenalty_Title>
   <RG_AccuracyPenalty_Description>MOD有効中に受ける命中精度ペナルティ</RG_AccuracyPenalty_Description>
-  <RG_MovementPenalty_Title>移動ペナルティ(%)</RG_MovementPenalty_Title>
-  <RG_MovementPenalty_Description>MOD有効中に受ける射撃中の移動ペナルティ</RG_MovementPenalty_Description>
-  <RG_EnableRGForAI_Title>AIもRunAndGunを有効化する</RG_EnableRGForAI_Title>
+  <RG_MovementPenaltyHeavy_Title>重い武器の移動ペナルティ(%)</RG_MovementPenaltyHeavy_Title>
+  <RG_MovementPenaltyHeavy_Description>MOD有効中に受ける重い武器による射撃中の移動ペナルティ</RG_MovementPenaltyHeavy_Description>
+  <RG_MovementPenaltyLight_Title>軽い武器の移動ペナルティ(%)</RG_MovementPenaltyLight_Title>
+  <RG_MovementPenaltyLight_Description>MOD有効中に受ける軽い武器による射撃中の移動ペナルティ</RG_MovementPenaltyLight_Description>
+
+  <RG_EnableRGForAI_Title>AIにもRunAndGunを適用する</RG_EnableRGForAI_Title>
   <RG_EnableRGForAI_Description>すべてのAIポーンにRun And Gunを適用します。注意してください、このオプションは彼らを信じられないほど致命的な脅威にします。</RG_EnableRGForAI_Description>
+  <RG_EnableRGForFleeChance_Title>逃亡中の射撃率(%)</RG_EnableRGForFleeChance_Title>
+  <RG_EnableRGForFleeChance_Description>逃走中の敵ポーンが、逃走しながらRunAndGunを使用する確率です。</RG_EnableRGForFleeChance_Description>
+
+  <RG_WeightLimitFilter_Title>軽い/重いを重量制限でフィルタ</RG_WeightLimitFilter_Title>
+  <RG_WeightLimitFilter_Description>スライダを動かして、フィルタに使用される重量制限の値を設定します。適用がクリックされると、武器はこの重量制限の値に基づいて重い武器と軽い武器に分類されます。重い武器は軽い武器とは異なった移動ペナルティを受ます。 </RG_WeightLimitFilter_Description>
+
+  <RG_WeaponSelection_Title>軽い武器なのか重い武器なのか\nどちらに分類されますか?\n(移動ペナルティ用)</RG_WeaponSelection_Title>
+  <RG_WeaponSelection_Description>武器をクリックして、移動ペナルティが適用されるときに武器が重武器か軽武器かどちらなのか見分ける設定をします</RG_WeaponSelection_Description>
+  <RG_Button_Apply>適用</RG_Button_Apply>
+  <RG_ConsideredLight>軽い武器</RG_ConsideredLight>
+  <RG_ConsideredHeavy>重い武器</RG_ConsideredHeavy>
+
   <RG_Action_Enable_Label>移動射撃ON</RG_Action_Enable_Label>
   <RG_Action_Disable_Label>移動射撃OFF</RG_Action_Disable_Label>
   <RG_Action_Disable_Description>移動射撃モードを無効化</RG_Action_Disable_Description>
   <RG_Action_Enable_Description>このRunAndGunを有効にすると、ポーンが移動しながら射撃できるモードになります。走っている間に射撃を行うと射撃武器の命中精度とポーンの移動にペナルティが発生します。</RG_Action_Enable_Description>
+
 
 </LanguageData>
