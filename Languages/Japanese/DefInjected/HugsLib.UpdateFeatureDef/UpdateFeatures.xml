@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-
-  <RunAndGun_1_17_6.content>RunAndGunは次の変更内容で更新されました: \n\n-　RunAndGunの移動ペナルティは、現在、武器の持つ重さに依存しています。重火器とみなされる射撃武器と、武器タイプごとのペナルティをMODオプションから設定することができます。\n-　敵のポーンが逃亡している間にRunAndGunを使用するチャンスを設定できる様にMODオプションが追加されました。\n-　非人間種族(MOD)との互換性が向上しました。\n-　RunAndGunボタンの配置場所を変更しました。 </RunAndGun_1_17_6.content>
-
-
-</LanguageData>

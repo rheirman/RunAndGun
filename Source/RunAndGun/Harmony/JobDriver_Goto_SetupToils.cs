@@ -48,14 +48,14 @@ namespace RunAndGun.Harmony
                 if (verb != null && !verb.verbProps.MeleeRange)
                 {
                     TargetScanFlags targetScanFlags = TargetScanFlags.NeedLOSToPawns | TargetScanFlags.NeedLOSToNonPawns | TargetScanFlags.NeedThreat;
-                    if (verb.verbProps.ai_IsIncendiary)
+                    if (verb.IsIncendiary())
                     {
                         targetScanFlags |= TargetScanFlags.NeedNonBurning;
                     }
                     Thing thing = (Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(__instance.pawn, null, verb.verbProps.range, verb.verbProps.minRange, targetScanFlags);
                     if (thing != null)
                     {
-                        __instance.pawn.equipment.TryStartAttack(thing);
+                        __instance.pawn.TryStartAttack(thing);
                         return;
                     }
                 }
