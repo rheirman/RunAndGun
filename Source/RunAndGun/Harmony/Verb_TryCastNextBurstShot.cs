@@ -63,15 +63,12 @@ namespace RunAndGun.Harmony
 
                 if (__instance.CasterIsPawn)
                 {
-                    Log.Message("curjob: " + __instance.CasterPawn.jobs.curJob.def.defName);
                     if(__instance.CasterPawn.jobs.curJob.def.Equals(JobDefOf.Goto))
                     {
-                        Log.Message("start runandgun cooldown");
                         __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
                     }
                     else
                     {
-                        Log.Message("start normal cooldown");
                         __instance.CasterPawn.stances.SetStance(new Stance_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
                     }
                 }

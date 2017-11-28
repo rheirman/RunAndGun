@@ -19,19 +19,6 @@ This mod depends on Hugslib, so make sure that mod loads before this mod does.
 This mod should be compatible with existing saves, and removing the mod from saves shouldn't introduce problems. Moreover, this mod should be compatible with most other mods (including Combat Extended). However, keep in mind that this is hard to test for me by myself, and this is the first release.
 Therefore some issues regarding mod compatibility are bound to come up. Most issues that come up should be easy to fix, so please report any problems.  
 
-&lt;color=orange&gt;&lt;b&gt;Latest releases&lt;/b&gt;&lt;/color&gt;
-
-V2.1
-- The RunAndGun movement penalty now depends on how heavy weapons are. What are considered heavy weapons and the penalty per weapon type can be configured in the mod options. 
-- Added a mod option that can be used to set the chance that enemy pawns will use RunAndGun while fleeing. 
-- Improved compatibility with non-human races. 
-- Fixed problem with new version of hugslib.
-- Changed the position of the RunAndGun button. 
-
-V2.0
-- Made RunAndGun A18 compatible
-
-
 
 	</description>	
 </ModMetaData>
