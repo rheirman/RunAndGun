@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <RG_tab1>重い/軽いの武器設定...</RG_tab1>
+  <RG_tab2>禁止武器...</RG_tab2>
+  <RG_Tabs_Title>拡張オプション</RG_Tabs_Title>
+  <RG_WeaponForbidder_Title>RunAndGun適用禁止</RG_WeaponForbidder_Title>
+  <RG_WeaponForbidder_Description>RunAndGunの適用を禁止したい武器をここで選択してください</RG_WeaponForbidder_Description>
+  <RG_Forbid>禁止</RG_Forbid>
+  <RG_Allow>許可</RG_Allow>
   <RG_AccuracyPenalty_Title>命中精度ペナルティ(%)</RG_AccuracyPenalty_Title>
   <RG_AccuracyPenalty_Description>MOD有効中に受ける命中精度ペナルティ</RG_AccuracyPenalty_Description>
   <RG_MovementPenaltyHeavy_Title>重い武器の移動ペナルティ(%)</RG_MovementPenaltyHeavy_Title>
