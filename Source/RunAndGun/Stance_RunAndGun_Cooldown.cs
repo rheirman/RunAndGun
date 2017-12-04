@@ -15,8 +15,11 @@ namespace RunAndGun
         {
             get
             {
-                return false;
+                return Pawn.CurJob.def != JobDefOf.Goto;
             }
+        }
+        public Stance_RunAndGun_Cooldown()
+        {
         }
         public Stance_RunAndGun_Cooldown(int ticks, LocalTargetInfo focusTarg, Verb verb) : base(ticks, focusTarg, verb)
         {

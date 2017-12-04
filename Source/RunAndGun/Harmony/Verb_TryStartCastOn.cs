@@ -45,8 +45,11 @@ namespace RunAndGun.Harmony
                 return true;
             }
 
+            if ((__instance.CasterPawn.stances.curStance is Stance_RunAndGun) || (__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown))
+            {
+                return false;
+            }
 
-            
             Traverse.Create(__instance).Field("surpriseAttack").SetValue(surpriseAttack);
             Traverse.Create(__instance).Field("canFreeInterceptNow").SetValue(canFreeIntercept);
             Traverse.Create(__instance).Field("currentTarget").SetValue(castTarg);

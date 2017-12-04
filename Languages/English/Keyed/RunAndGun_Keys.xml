@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+ <RG_tab1>Set heavy/light...</RG_tab1>
+ <RG_tab2>Forbid weapons...</RG_tab2>
+ <RG_Tabs_Title>Advanced options</RG_Tabs_Title>
+ <RG_WeaponForbidder_Title>Forbid RunAndGun for weapons</RG_WeaponForbidder_Title>
+ <RG_WeaponForbidder_Description>Select the weapons for which you like to forbid RunAndGun</RG_WeaponForbidder_Description>
+ <RG_Forbid>Forbid</RG_Forbid>
+ <RG_Allow>Allow</RG_Allow>
  <RG_AccuracyPenalty_Title>Accuracy penalty(%)</RG_AccuracyPenalty_Title>
  <RG_AccuracyPenalty_Description>The accuracy penalty when run and gun is enabled</RG_AccuracyPenalty_Description>
- <RG_MovementPenalty_Title>Movement penalty(%)</RG_MovementPenalty_Title>
- <RG_MovementPenalty_Description>The movement penalty while shooting</RG_MovementPenalty_Description>
- 
- <RG_Action_Enable_Label>Run and Gun!</RG_Action_Enable_Label>
+ <RG_MovementPenaltyHeavy_Title>Movement penalty for heavy weapons (%)</RG_MovementPenaltyHeavy_Title>
+ <RG_MovementPenaltyHeavy_Description>The movement penalty while shooting for heavy weapons</RG_MovementPenaltyHeavy_Description>
+ <RG_MovementPenaltyLight_Title>Movement penalty for light weapons (%)</RG_MovementPenaltyLight_Title>
+ <RG_MovementPenaltyLight_Description>The movement penalty while shooting for light weapons</RG_MovementPenaltyLight_Description>
+ <RG_EnableRGForAI_Title>Enable Run And Gun for AI</RG_EnableRGForAI_Title>
+ <RG_EnableRGForAI_Description>Enables Run And Gun for all AI pawns. Beware, this makes them incredibly deadly.</RG_EnableRGForAI_Description>
+ <RG_EnableRGForFleeChance_Title>Flee and gun chance(%)</RG_EnableRGForFleeChance_Title>
+ <RG_EnableRGForFleeChance_Description>Chance that fleeing enemy pawns will use RunAndGun while fleeing</RG_EnableRGForFleeChance_Description>
+ <RG_WeightLimitFilter_Title>Filter heavy/light by weight limit</RG_WeightLimitFilter_Title>
+ <RG_WeightLimitFilter_Description>Use the slider to set the weight limit that is used for the filter. When apply is clicked, weapons are categorised as heavy or light based on this weight limit. Heavy weapons get a different movement penalty then light weapons. </RG_WeightLimitFilter_Description>
+ <RG_WeaponSelection_Title>Which weapons are light/heavy? \n(used for movement penalty)</RG_WeaponSelection_Title>
+ <RG_WeaponSelection_Description>Click weapons to configure whether weapons should be considered as heavy or light weapons when the movement penalty is applied</RG_WeaponSelection_Description>
+ <RG_Button_Apply>Apply</RG_Button_Apply>
+ <RG_ConsideredLight>Light weapons</RG_ConsideredLight>
+ <RG_ConsideredHeavy>Heavy weapons</RG_ConsideredHeavy>
+ <RG_Action_Enable_Label>Run and Gun</RG_Action_Enable_Label>
  <RG_Action_Disable_Label>Disable Run and Gun</RG_Action_Disable_Label>
  <RG_Action_Disable_Description>Disables Run and Gun mode</RG_Action_Disable_Description>
  <RG_Action_Enable_Description>Enables Run and Gun, a mode in which pawns can shoot while running. Shooting while running causes an accuracy and movement penalty</RG_Action_Enable_Description>

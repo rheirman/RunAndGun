@@ -16,8 +16,7 @@ namespace RunAndGun.Harmony
     {
         static bool Prefix(Verb __instance)
         {
-
-            if (!__instance.CasterIsPawn || (!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun) && !(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)))
+            if (!__instance.CasterIsPawn || (!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun) && !(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)) || __instance.verbProps.MeleeRange)
             {
                 return true;
             }
@@ -64,18 +63,37 @@ namespace RunAndGun.Harmony
 
                 if (__instance.CasterIsPawn)
                 {
-                    __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
+                    if(__instance.CasterPawn.jobs.curJob.def.Equals(JobDefOf.Goto))
+                    {
+                        __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
+                    }
+                    else
+                    {
+                        __instance.CasterPawn.stances.SetStance(new Stance_Cooldown(__instance.verbProps.ticksBetweenBurstShots + 1, currentTarget, __instance));
+                    }
                 }
             }
             else
             {
                 __instance.state = VerbState.Idle;
-                __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance.ownerEquipment), currentTarget, __instance));
+                if (__instance.CasterPawn.jobs.curJob.def.Equals(JobDefOf.Goto))
+                {
+                    __instance.CasterPawn.stances.SetStance(new Stance_RunAndGun_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance, __instance.CasterPawn, __instance.ownerEquipment), currentTarget, __instance));
+                }
+                else
+                {
+                    __instance.CasterPawn.stances.SetStance(new Stance_Cooldown(__instance.verbProps.AdjustedCooldownTicks(__instance, __instance.CasterPawn, __instance.ownerEquipment), currentTarget, __instance));
+                }
                 if (__instance.castCompleteCallback != null)
                 {
                     __instance.castCompleteCallback();
                 }
             }
+            
+            if(!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)){
+                return true;
+            }
+
             return false;
         }
     }
