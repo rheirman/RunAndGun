@@ -2,6 +2,7 @@
 <LanguageData>
  <RG_tab1>Set heavy/light...</RG_tab1>
  <RG_tab2>Forbid weapons...</RG_tab2>
+ <RG_Tabs_Title>Advanced options</RG_Tabs_Title>
  <RG_WeaponForbidder_Title>Forbid RunAndGun for weapons</RG_WeaponForbidder_Title>
  <RG_WeaponForbidder_Description>Select the weapons for which you like to forbid RunAndGun</RG_WeaponForbidder_Description>
  <RG_Forbid>Forbid</RG_Forbid>
