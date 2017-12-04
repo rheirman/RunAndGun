@@ -25,8 +25,7 @@ namespace RunAndGun.Harmony
 
 
             CompRunAndGun data = __instance.TryGetComp<CompRunAndGun>();
-
-            if(data == null)
+            if(data == null || (!Settings.weaponForbidder.Value.InnerList.Contains(__instance.equipment.Primary.def.defName)))
             {
                 return;
             }

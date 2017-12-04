@@ -24,10 +24,15 @@ namespace RunAndGun
                 return pawn;
             }
         }
-        public bool isEnabled = false; 
+        public bool isEnabled = false;
 
 
-
+        public override void CompTickRare()
+        {
+            if(pawn.equipment != null && pawn.equipment.Primary != null && !Settings.weaponForbidder.Value.InnerList.Contains(pawn.equipment.Primary.def.defName)){
+                isEnabled = false;
+            }
+        }
 
 
         public override void Initialize(CompProperties props)

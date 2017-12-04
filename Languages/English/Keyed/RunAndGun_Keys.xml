@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+ <RG_tab1>Set heavy/light...</RG_tab1>
+ <RG_tab2>Forbid weapons...</RG_tab2>
+ <RG_WeaponForbidder_Title>Forbid RunAndGun for weapons</RG_WeaponForbidder_Title>
+ <RG_WeaponForbidder_Description>Select the weapons for which you like to forbid RunAndGun</RG_WeaponForbidder_Description>
+ <RG_Forbid>Forbid</RG_Forbid>
+ <RG_Allow>Allow</RG_Allow>
  <RG_AccuracyPenalty_Title>Accuracy penalty(%)</RG_AccuracyPenalty_Title>
  <RG_AccuracyPenalty_Description>The accuracy penalty when run and gun is enabled</RG_AccuracyPenalty_Description>
  <RG_MovementPenaltyHeavy_Title>Movement penalty for heavy weapons (%)</RG_MovementPenaltyHeavy_Title>

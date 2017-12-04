@@ -148,7 +148,45 @@ namespace RunAndGun.Utilities
             return change;
         }
 
-        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, string yesText = "Light", string noText = "Heavy", bool excludeNeolithic = false)
+        public static bool CustomDrawer_Tabs(Rect rect, SettingHandle<String> selected, String[] defaultValues)
+        {
+            int labelWidth = 140;
+            int offset = 0;
+            bool change = false;
+
+            foreach (String tab in defaultValues)
+            {
+                Rect buttonRect = new Rect(rect);
+                buttonRect.width = labelWidth;
+                buttonRect.position = new Vector2(buttonRect.position.x + offset, buttonRect.position.y);
+                Color activeColor = GUI.color;
+                bool isSelected = tab == selected.Value;
+                if (isSelected)
+                    GUI.color = SelectedOptionColor;
+                bool clicked = Widgets.ButtonText(buttonRect, tab);
+                if (isSelected)
+                    GUI.color = activeColor;
+
+                if (clicked)
+                {
+                    if (selected.Value != tab)
+                    {
+                        selected.Value = tab;
+                    }
+                    else
+                    {
+                        selected.Value = "none";
+                    }
+                    change = true;
+                }
+
+                offset += labelWidth;
+
+            }
+            return change;
+        }
+
+        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, bool shouldFilter, string yesText = "Light", string noText = "Heavy", bool excludeNeolithic = false)
         {
             drawBackground(wholeRect, background);
 
@@ -177,14 +215,14 @@ namespace RunAndGun.Utilities
             allWeapons.Sort(new MassComparer());
 
 
-            if (setting.Value == null || Settings.applyFilter.Value == true)
+            if (setting.Value == null || (Settings.applyFilter.Value == true))
             {
                 setting.Value = new StringHashSetHandler();
                 for (int i = 0; i < allWeapons.Count; i++)
                 {
 
                     float mass = allWeapons[i].thing.GetStatValueAbstract(StatDefOf.Mass);
-                    if (mass <= Settings.weightLimitFilter.Value)
+                    if (mass <= Settings.weightLimitFilter.Value || !shouldFilter)
                     {
                         setting.Value.InnerList.Add(allWeapons[i].thing.defName);
                     }
