@@ -2,7 +2,7 @@
 
 ## Install
 
-Download the zip from the master branch, unpack and place the unpacked folder in the Rimworld mods folder. 
+Download the zip from one of the releases, unpack and place the unpacked folder in the Rimworld mods folder. 
 
 ## Links
 
