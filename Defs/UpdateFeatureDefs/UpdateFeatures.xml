@@ -15,4 +15,15 @@
 - Changed the position of the RunAndGun button. 
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>RunAndGun_1_18_2</defName>
+		<assemblyVersion>1.18.2</assemblyVersion>
+		<content>RunAndGun has been updated with the following changes: 
+- Tabs are added to the mods settings 
+- New mod option is added that allows users to forbid RunAndGun for certain weapons. This also applies to the weapons used by enemy pawns.
+- Pawns can no longer RunAndGun while burning
+- Fixed issue that caused the weapon cooldown to be circumvented when a pawn stops moving while running and gunning.
+- Korean translations added
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

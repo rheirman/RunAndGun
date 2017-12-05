@@ -15,7 +15,7 @@ namespace RunAndGun
         {
             get
             {
-                return Pawn.CurJob.def != JobDefOf.Goto;
+                return Pawn != null && Pawn.CurJob != null && Pawn.CurJob.def != JobDefOf.Goto;
             }
         }
         public Stance_RunAndGun_Cooldown()
