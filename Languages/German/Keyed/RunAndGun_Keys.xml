@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <RG_tab1>Leichte/Schwere Waffen...</RG_tab1>
+ <RG_tab2>Waffen verbieten...</RG_tab2>
+ <RG_Tabs_Title>Erweiterte Einstellungen</RG_Tabs_Title>
+ <RG_WeaponForbidder_Title>RunAndGun für Waffen verbieten</RG_WeaponForbidder_Title>
+ <RG_WeaponForbidder_Description>Wähle Waffen aus, für die du RunAndGun verbieten möchtest.</RG_WeaponForbidder_Description>
+ <RG_Forbid>Verbieten</RG_Forbid>
+ <RG_Allow>Erlauben</RG_Allow>
+ <RG_AccuracyPenalty_Title>Genauigkeitsmalus (%)</RG_AccuracyPenalty_Title>
+ <RG_AccuracyPenalty_Description>Der Genauigkeitsmalus, wenn RunAndGun aktiviert ist.</RG_AccuracyPenalty_Description>
+ <RG_MovementPenaltyHeavy_Title>Bewegungsmalus für schwere Waffen (%)</RG_MovementPenaltyHeavy_Title>
+ <RG_MovementPenaltyHeavy_Description>Der Bewegungsmalus, wenn jemand mit schweren Waffen beim Laufen schießt.</RG_MovementPenaltyHeavy_Description>
+ <RG_MovementPenaltyLight_Title>Bewegungsmalus für leichte Waffen (%)</RG_MovementPenaltyLight_Title>
+ <RG_MovementPenaltyLight_Description>Der Bewegungsmalus, wenn jemand mit leichten Waffen beim Laufen schießt.</RG_MovementPenaltyLight_Description>
+ <RG_EnableRGForAI_Title>RunAndGun für KI aktivieren</RG_EnableRGForAI_Title>
+ <RG_EnableRGForAI_Description>Aktiviert RunAndGun für die KI. Vorsicht: Die KI kann dadurch sehr tödlich werden.</RG_EnableRGForAI_Description>
+ <RG_EnableRGForFleeChance_Title>Flüchten und Schießen(%)</RG_EnableRGForFleeChance_Title>
+ <RG_EnableRGForFleeChance_Description>Die Chance, dass ein Gegner RunAndGun benutzt, wenn er flüchtet.</RG_EnableRGForFleeChance_Description>
+ <RG_WeightLimitFilter_Title>Leichte/Schwere Waffen nach Gewicht sortieren</RG_WeightLimitFilter_Title>
+ <RG_WeightLimitFilter_Description>Benutze den Schieberegler um das Maximalgewicht für leichte Waffen zu setzen. Wenn Bestätigen geklickt wird, werden alle Waffen in die jeweile Kategorie einsortiert. Schwere Waffen bekommen einen höheren Bewegungsmalus als leichte Waffen.</RG_WeightLimitFilter_Description>
+ <RG_WeaponSelection_Title>Welche Waffen sind leicht/schwer? \n(relevant für Bewegungsmalus)</RG_WeaponSelection_Title>
+ <RG_WeaponSelection_Description>Klicke auf Waffen um einzustellen, ob sie als leicht oder schwer markiert werden sollen, wenn der Bewegungsmalus berechnet wird.</RG_WeaponSelection_Description>
+ <RG_Button_Apply>Bestätigen</RG_Button_Apply>
+ <RG_ConsideredLight>Leichte Waffen</RG_ConsideredLight>
+ <RG_ConsideredHeavy>Schwere Waffen</RG_ConsideredHeavy>
+ <RG_Action_Enable_Label>Run and Gun</RG_Action_Enable_Label>
+ <RG_Action_Disable_Label>Run and Gun deaktivieren</RG_Action_Disable_Label>
+ <RG_Action_Disable_Description>RunAndGun-Modus ausschalten</RG_Action_Disable_Description>
+ <RG_Action_Enable_Description>RunAndGun-Modus einschalten. Ein Modus, in dem die Kolonisten beim Laufen schießen können. Während dem Laufen zu schießen reduziert Genauigkeit und Bewegungsrate.</RG_Action_Enable_Description>
+</LanguageData>
