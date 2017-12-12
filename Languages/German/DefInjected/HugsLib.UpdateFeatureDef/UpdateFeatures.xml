@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RunAndGun_1_17_6.content>RunAndGun wurde mit den folgenden Änderungen aktualisiert:
+- RunAndGun Bewegungsmalus ist jetzt abhängig davon, wie schwer die Waffe ist. Welche Waffen als schwer angesehen werden und der Malus für diese kann in den Mod-Einstellungen bearbeitet werden.
+- Option in den Mod-Einstellungen hinzugefügt, dass fliehende Gegner RunAndGun benutzen können.
+- Kompatibilität mit nicht-menschlichen Rassen verbessert.
+- Die Position des RunAndGun-Feldes wurde geändert.
+	</RunAndGun_1_17_6.content>
+
+  <RunAndGun_1_18_2.content>RunAndGun wurde mit den folgenden Änderungen aktualisiert:
+- Tabs in den Mod-Einstellungen hinzugefügt.
+- Neue Option RunAndGun für bestimmte Waffen zu verbieten. Betrifft auch Gegner, die solche Waffen benutzen.
+- Kolonisten können RunAndGun nicht mehr benutzen, wenn sie brennen.
+- Das Problem, dass die Wartezeit zwischen Schüssen umgangen werden kann, wenn ein Kolonist stehen bleibt, wurde behoben.
+- Koreanische Übersetzung hinzugefügt.
+	</RunAndGun_1_18_2.content>
+
+</LanguageData>
