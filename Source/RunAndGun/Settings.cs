@@ -24,8 +24,8 @@ namespace RunAndGun
         internal static SettingHandle<int> movementPenaltyLight;
         internal static SettingHandle<int> enableForFleeChance;
         internal static SettingHandle<bool> enableForAI;
-        internal static SettingHandle<StringHashSetHandler> weaponSelecter;
-        internal static SettingHandle<StringHashSetHandler> weaponForbidder;
+        internal static SettingHandle<DictWeaponRecordHandler> weaponSelecter;
+        internal static SettingHandle<DictWeaponRecordHandler> weaponForbidder;
         internal static SettingHandle<String> tabsHandler;
 
         internal static SettingHandle<float> weightLimitFilter;
@@ -42,7 +42,8 @@ namespace RunAndGun
         {
             float maxWeightMelee;
             float maxWeightRanged;
-            WeaponUtility.getHeaviestWeapons(WeaponUtility.getAllWeapons(), out maxWeightMelee, out maxWeightRanged);
+            List<ThingDef> allWeapons = WeaponUtility.getAllWeapons();
+            WeaponUtility.getHeaviestWeapons(allWeapons, out maxWeightMelee, out maxWeightRanged);
             maxWeightMelee += 1;
             maxWeightRanged += 1;
             float maxWeightTotal = Math.Max(maxWeightMelee, maxWeightRanged);
@@ -68,55 +69,18 @@ namespace RunAndGun
             applyFilter = Settings.GetHandle<bool>("applyFilter", "", "", false);
             applyFilter.VisibilityPredicate = delegate { return false; };
 
-            weaponSelecter = Settings.GetHandle<StringHashSetHandler>("weaponSelecter", "RG_WeaponSelection_Title".Translate(), "RG_WeaponSelection_Description".Translate(), null);
+            weaponSelecter = Settings.GetHandle<DictWeaponRecordHandler>("weaponSelecter_new", "RG_WeaponSelection_Title".Translate(), "RG_WeaponSelection_Description".Translate(), null);
             weaponSelecter.VisibilityPredicate = delegate { return tabsHandler.Value == tabNames[0]; };
 
-            weaponForbidder = Settings.GetHandle<StringHashSetHandler>("weaponForbidder", "RG_WeaponForbidder_Title".Translate(), "RG_WeaponForbidder_Description".Translate(), null);
+            weaponForbidder = Settings.GetHandle<DictWeaponRecordHandler>("weaponForbidder_new", "RG_WeaponForbidder_Title".Translate(), "RG_WeaponForbidder_Description".Translate(), null);
             weaponForbidder.VisibilityPredicate = delegate { return tabsHandler.Value == tabNames[1]; };
 
-            weaponSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponSelecter, highlight1, true, "RG_ConsideredLight".Translate(), "RG_ConsideredHeavy".Translate()); };
-            weaponForbidder.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponForbidder, highlight1, false, "RG_Allow".Translate(), "RG_Forbid".Translate() ); };
+            weaponSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponSelecter, allWeapons, weightLimitFilter, "RG_ConsideredLight".Translate(), "RG_ConsideredHeavy".Translate()); };
+            weaponForbidder.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingWeapons_active(rect, weaponForbidder, allWeapons, null, "RG_Allow".Translate(), "RG_Forbid".Translate() ); };
 
-            if(weaponSelecter.Value == null)
-            {
-                weaponSelecter.Value = getDefaultForWeaponSelecter();
-            }
-            if (weaponForbidder.Value == null)
-            {
-                weaponForbidder.Value = getDefaultForWeaponForbidder();
-            }
-        }
+            DrawUtility.filterWeapons(ref weaponSelecter, allWeapons, weightLimitFilter);
+            DrawUtility.filterWeapons(ref weaponForbidder, allWeapons, null);
 
-
-        private StringHashSetHandler getDefaultForWeaponSelecter()
-        {
-            StringHashSetHandler result = new StringHashSetHandler();
-            List<ThingStuffPair> allWeapons = WeaponUtility.getAllWeapons();
-            allWeapons.Sort(new MassComparer());
-            result.InnerList = new HashSet<string>();
-            for (int i = 0; i < allWeapons.Count; i++)
-            {
-
-                float mass = allWeapons[i].thing.GetStatValueAbstract(StatDefOf.Mass);
-                if (mass <= weightLimitFilter.Value)
-                {
-                    result.InnerList.Add(allWeapons[i].thing.defName);
-                }
-            }
-            return result;
-        }
-
-        private StringHashSetHandler getDefaultForWeaponForbidder()
-        {
-            StringHashSetHandler result = new StringHashSetHandler();
-            List<ThingStuffPair> allWeapons = WeaponUtility.getAllWeapons();
-            allWeapons.Sort(new MassComparer());
-            result.InnerList = new HashSet<string>();
-            for (int i = 0; i < allWeapons.Count; i++)
-            {
-                    result.InnerList.Add(allWeapons[i].thing.defName);
-            }
-            return result;
         }
 
 

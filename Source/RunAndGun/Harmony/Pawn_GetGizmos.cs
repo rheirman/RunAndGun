@@ -15,7 +15,6 @@ namespace RunAndGun.Harmony
     {
         public static void Postfix(ref IEnumerable<Gizmo> __result, ref Pawn __instance)
         {
-
             if (__instance == null || !__instance.Drafted || !__instance.Faction.Equals(Faction.OfPlayer) || !WorkGiver_HunterHunt.HasHuntingWeapon(__instance))
             {
                 return;
@@ -23,11 +22,18 @@ namespace RunAndGun.Harmony
             if (__result == null || !__result.Any())
                 return;
 
-
             CompRunAndGun data = __instance.TryGetComp<CompRunAndGun>();
-            if(data == null || (!Settings.weaponForbidder.Value.InnerList.Contains(__instance.equipment.Primary.def.defName)))
+            if(data == null)
             {
                 return;
+            }
+            if (__instance.equipment != null && __instance.equipment.Primary != null)
+            {
+                bool found = Settings.weaponForbidder.Value.InnerList.TryGetValue(__instance.equipment.Primary.def.defName, out WeaponRecord value);
+                if (found && value.isSelected)
+                {
+                    return;
+                }
             }
 
             String uiElement = "enable_RG";
