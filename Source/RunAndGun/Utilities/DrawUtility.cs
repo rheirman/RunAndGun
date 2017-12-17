@@ -115,7 +115,7 @@ namespace RunAndGun.Utilities
 
 
 
-        public static bool CustomDrawer_Filter(Rect rect, SettingHandle<float> slider, SettingHandle<bool> button, bool def_isPercentage, float def_min, float def_max, Color background)
+        public static bool CustomDrawer_Filter(Rect rect, SettingHandle<float> slider, bool def_isPercentage, float def_min, float def_max, Color background)
         {
             drawBackground(rect, background);
             int labelWidth = 50;

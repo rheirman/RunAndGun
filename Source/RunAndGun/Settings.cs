@@ -29,8 +29,6 @@ namespace RunAndGun
         internal static SettingHandle<String> tabsHandler;
 
         internal static SettingHandle<float> weightLimitFilter;
-        internal static SettingHandle<bool> applyFilter;
-
 
 
         private const int minPercentage = 0;
@@ -63,11 +61,8 @@ namespace RunAndGun
             tabsHandler.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Tabs(rect, tabsHandler, tabNames); };
 
             weightLimitFilter = Settings.GetHandle<float>("weightLimitFilter", "RG_WeightLimitFilter_Title".Translate(), "RG_WeightLimitFilter_Description".Translate(), 3.4f);
-            weightLimitFilter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Filter(rect, weightLimitFilter, applyFilter, false, 0, maxWeightTotal, highlight1); };
+            weightLimitFilter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Filter(rect, weightLimitFilter, false, 0, maxWeightTotal, highlight1); };
             weightLimitFilter.VisibilityPredicate = delegate { return tabsHandler.Value == tabNames[0]; };
-
-            applyFilter = Settings.GetHandle<bool>("applyFilter", "", "", false);
-            applyFilter.VisibilityPredicate = delegate { return false; };
 
             weaponSelecter = Settings.GetHandle<DictWeaponRecordHandler>("weaponSelecter_new", "RG_WeaponSelection_Title".Translate(), "RG_WeaponSelection_Description".Translate(), null);
             weaponSelecter.VisibilityPredicate = delegate { return tabsHandler.Value == tabNames[0]; };
