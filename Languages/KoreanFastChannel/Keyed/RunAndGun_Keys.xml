@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <RG_tab1>무게 세팅...</RG_tab1>
+ <RG_tab2>금지 무기...</RG_tab2>
+ <RG_Tabs_Title>고급 옵션</RG_Tabs_Title>
+ <RG_WeaponForbidder_Title>런앤건 금지 무기 설정</RG_WeaponForbidder_Title>
+ <RG_WeaponForbidder_Description>런앤건을 금지하려는 무기를 선택 하세요.</RG_WeaponForbidder_Description>
+ <RG_Forbid>금지</RG_Forbid>
+ <RG_Allow>허용</RG_Allow>
+ <RG_AccuracyPenalty_Title>정확도 패널티(%)</RG_AccuracyPenalty_Title>
+ <RG_AccuracyPenalty_Description>런앤건이 활성화 되었을 때의 정확도 패널티</RG_AccuracyPenalty_Description>
+ <RG_MovementPenaltyHeavy_Title>무거운 무기 사격시 이동 패널티 (%)</RG_MovementPenaltyHeavy_Title>
+ <RG_MovementPenaltyHeavy_Description>무거운 무기를 들고 사격 할 때의 이동 패널티</RG_MovementPenaltyHeavy_Description>
+ <RG_MovementPenaltyLight_Title>가벼운 무기 사격시 이동 패널티 (%)</RG_MovementPenaltyLight_Title>
+ <RG_MovementPenaltyLight_Description>가벼운 무기를 들고 사격 할 때의 이동 패널티</RG_MovementPenaltyLight_Description>
+ <RG_EnableRGForAI_Title>AI의 런앤건 사용 활성화</RG_EnableRGForAI_Title>
+ <RG_EnableRGForAI_Description>모든 AI의 런앤건 사용을 활성화 합니다. 주의, 매우 치명적 입니다.</RG_EnableRGForAI_Description>
+ <RG_EnableRGForFleeChance_Title>도주 사격 찬스 확률(%)</RG_EnableRGForFleeChance_Title>
+ <RG_EnableRGForFleeChance_Description>적 림들이 도주시 런앤건을 사용할 확률</RG_EnableRGForFleeChance_Description>
+ <RG_WeightLimitFilter_Title>무게 최대/최소값 필터</RG_WeightLimitFilter_Title>
+ <RG_WeightLimitFilter_Description>슬라이더를 사용하여 필터에 사용되는 무게 제한을 설정하십시오. 적용을 클릭하면 무기가 무게 한계에 따라 무겁거나 가벼운 것으로 분류됩니다. 무거운 무기와 가벼운 무기는 각각 이동 페널티가 다릅니다. </RG_WeightLimitFilter_Description>
+ <RG_WeaponSelection_Title>무게에 따른 구분 \n(이동 패널티에 사용)</RG_WeaponSelection_Title>
+ <RG_WeaponSelection_Description>무기를 클릭하여 이동 페널티가 적용될 때 무기를 무겁거나 가벼운 무기로 간주해야 하는지 여부를 구성하십시오</RG_WeaponSelection_Description>
+ <RG_Button_Apply>적용</RG_Button_Apply>
+ <RG_ConsideredLight>가벼운 무기</RG_ConsideredLight>
+ <RG_ConsideredHeavy>무거운 무기</RG_ConsideredHeavy>
+ <RG_Action_Enable_Label>런 앤 건</RG_Action_Enable_Label>
+ <RG_Action_Disable_Label>런 앤 건 비활성</RG_Action_Disable_Label>
+ <RG_Action_Disable_Description>런 앤 건 모드 비활성 </RG_Action_Disable_Description>
+ <RG_Action_Enable_Description>런 앤 건 모드 활성, 림이 달리면서 사격을 할 수 있는 모드 입니다. 달리면서 사격시 정확도와 이동속도 패널티가 발생 합니다.</RG_Action_Enable_Description>
+</LanguageData>
