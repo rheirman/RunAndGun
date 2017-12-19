@@ -26,4 +26,13 @@
 - Korean translations added
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>RunAndGun_1_18_3</defName>
+		<assemblyVersion>1.18.3</assemblyVersion>
+		<content>RunAndGun has been updated with the following changes: 
+- Weapon selector for forbidding and in the mod settings has been completely re-implemented to a more user-friendly design. 
+- When mods that add new weapons are installed, the weight filter is applied automatically so new weapons are generally configured well from now on. 
+- Unfortunately, anything configured in the previous version of the weapon selector has to be re-configured. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <RG_tab1>Définir lourd/léger....</RG_tab1>
+ <RG_tab2>Interdire les armes...</RG_tab2>
+ <RG_Tabs_Title>Options avancées</RG_Tabs_Title>
+ <RG_WeaponForbidder_Title>Interdire RunAndGun pour les armes à feu</RG_WeaponForbidder_Title>
+ <RG_WeaponForbidder_Description>Sélectionnez les armes pour lesquelles vous souhaitez interdire RunAndGun</RG_WeaponForbidder_Description>
+ <RG_Forbid>Interdire</RG_Forbid>
+ <RG_Allow>Autoriser</RG_Allow>
+ <RG_AccuracyPenalty_Title>Pénalité de précision (%)</RG_AccuracyPenalty_Title>
+ <RG_AccuracyPenalty_Description>Pénalité de précision lorsque RunAndGun est activé</RG_AccuracyPenalty_Description>
+ <RG_MovementPenaltyHeavy_Title>Pénalité de mouvement pour les armes lourdes (%)</RG_MovementPenaltyHeavy_Title>
+ <RG_MovementPenaltyHeavy_Description>La pénalité de mouvement en tirant avec les armes lourdes</RG_MovementPenaltyHeavy_Description>
+ <RG_MovementPenaltyLight_Title>Pénalité de mouvement pour les armes légères (%)</RG_MovementPenaltyLight_Title>
+ <RG_MovementPenaltyLight_Description>La pénalité de mouvement en tirant avec les armes légères</RG_MovementPenaltyLight_Description>
+ <RG_EnableRGForAI_Title>Activer RunAndGun pour l'IA</RG_EnableRGForAI_Title>
+ <RG_EnableRGForAI_Description>Active RunAndGun pour tous les personnages de l'IA. Attention, cela les rend terriblement mortels.</RG_EnableRGForAI_Description>
+ <RG_EnableRGForFleeChance_Title>Fuite en tirant (%)</RG_EnableRGForFleeChance_Title>
+ <RG_EnableRGForFleeChance_Description>Chance que les personnages ennemis utilisent RunAndGun pendant leur fuite</RG_EnableRGForFleeChance_Description>
+ <RG_WeightLimitFilter_Title>Filtre lourd/léger par limite de poids</RG_WeightLimitFilter_Title>
+ <RG_WeightLimitFilter_Description>Utilisez le curseur pour régler la limite de poids utilisée pour le filtre. En cliquant sur Appliquer, les armes sont classées comme lourdes ou légères en fonction de cette limite de poids. Les armes lourdes ont une pénalité de mouvement différente de celle des armes légères. </RG_WeightLimitFilter_Description>
+ <RG_WeaponSelection_Title>Quelles sont les armes légères/lourdes? \n (utilisé pour la pénalité de mouvement)</RG_WeaponSelection_Title>
+ <RG_WeaponSelection_Description>Cliquez sur les armes pour déterminer si celles-ci doivent être considérées comme lourdes ou légères pour la pénalité de mouvement.</RG_WeaponSelection_Description>
+ <RG_Button_Apply>Appliquer</RG_Button_Apply>
+ <RG_ConsideredLight>Armes légères</RG_ConsideredLight>
+ <RG_ConsideredHeavy>Armes lourdes</RG_ConsideredHeavy>
+ <RG_Action_Enable_Label>Activer RunAndGun</RG_Action_Enable_Label>
+ <RG_Action_Disable_Label>Désactiver RunAndGun</RG_Action_Disable_Label>
+ <RG_Action_Disable_Description>Désactiver le mod RunAndGun</RG_Action_Disable_Description>
+ <RG_Action_Enable_Description>Active RunAndGun, un mod dans lequel les personnages peuvent tirer en courant. Tirer pendant la course entraîne une pénalité de précision et de mouvement</RG_Action_Enable_Description>
+</LanguageData>
