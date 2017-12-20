@@ -65,7 +65,15 @@ namespace RunAndGun.Utilities
             Graphic g = weapon.graphicData.Graphic;
             Color color = getColor(weapon);
             Color colorTwo = getColor(weapon);
+            if( weapon.graphicData == null || weapon.graphicData.Graphic == null)
+            {
+                return false;
+            }
             Graphic g2 = weapon.graphicData.Graphic.GetColoredVersion(g.Shader, color, colorTwo);
+            if (g2 == null)
+            {
+                return false; 
+            }
 
             var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, IconSize, IconSize);
 
@@ -253,8 +261,8 @@ namespace RunAndGun.Utilities
             }
 
 
-            int biggerRows = Math.Max(numSelected / iconsPerRow, (selection.Count - numSelected) / iconsPerRow);
-            setting.CustomDrawerHeight = (biggerRows * IconSize) + ((biggerRows) * IconGap) + TextMargin;
+            int biggerRows = Math.Max(numSelected / iconsPerRow, (selection.Count - numSelected) / iconsPerRow) + 1;
+            setting.CustomDrawerHeight = (biggerRows * IconSize) + (biggerRows * IconGap) + TextMargin;
             Dictionary<String, ThingDef> allWeaponsDict = allWeapons.ToDictionary(o => o.defName, o => o);
             int indexLeft = 0;
             int indexRight = 0;
