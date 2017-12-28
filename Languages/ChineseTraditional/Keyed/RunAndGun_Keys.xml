@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RG_tab1>設置重型/輕型武器...</RG_tab1>
+  <RG_tab2>禁用武器...</RG_tab2>
+  <RG_Tabs_Title>高級設置</RG_Tabs_Title>
+  <RG_WeaponForbidder_Title>選擇是否禁用移動射擊</RG_WeaponForbidder_Title>
+  <RG_WeaponForbidder_Description>選擇你想要禁用移動射擊的武器。</RG_WeaponForbidder_Description>
+  <RG_Forbid>禁用</RG_Forbid>
+  <RG_Allow>允許</RG_Allow>
+  <RG_AccuracyPenalty_Title>精準度懲罰(%)</RG_AccuracyPenalty_Title>
+  <RG_AccuracyPenalty_Description>跑動時的射擊精準度懲罰</RG_AccuracyPenalty_Description>
+  <RG_MovementPenaltyHeavy_Title>重型武器行動懲罰(%)</RG_MovementPenaltyHeavy_Title>
+  <RG_MovementPenaltyHeavy_Description>重型武器在射擊時的行動懲罰。</RG_MovementPenaltyHeavy_Description>
+  <RG_MovementPenaltyLight_Title>輕型武器行動懲罰(%)</RG_MovementPenaltyLight_Title>
+  <RG_MovementPenaltyLight_Description>輕型武器在射擊時的行動懲罰。</RG_MovementPenaltyLight_Description>
+  <RG_EnableRGForAI_Title>為遊戲AI開啟移動射擊</RG_EnableRGForAI_Title>
+  <RG_EnableRGForAI_Description>給予所有的AI啟動移動射擊功能。注意，這會使它們更有威脅性。</RG_EnableRGForAI_Description>
+  <RG_EnableRGForFleeChance_Title>逃兵反擊(%)</RG_EnableRGForFleeChance_Title>
+  <RG_EnableRGForFleeChance_Description>為逃跑中的敵人開啟移動射擊。</RG_EnableRGForFleeChance_Description>
+  <RG_WeightLimitFilter_Title>按重量限制過濾重型/輕型</RG_WeightLimitFilter_Title>
+  <RG_WeightLimitFilter_Description>拖動滑塊來設置重量限制過濾器。點擊應用時，根據這個重量限制，武器被分類為重型或輕型。重型武器獲得不同的移動懲罰，然後是輕型武器。</RG_WeightLimitFilter_Description>
+  <RG_WeaponSelection_Title>哪些武器為輕型/重型？ \n(用於移動懲罰)</RG_WeaponSelection_Title>
+  <RG_WeaponSelection_Description>點擊武器，以確定武器被視為重武器或者輕武器。</RG_WeaponSelection_Description>
+  <RG_Button_Apply>應用</RG_Button_Apply>
+  <RG_ConsideredLight>輕型武器</RG_ConsideredLight>
+  <RG_ConsideredHeavy>重型武器</RG_ConsideredHeavy>
+  <RG_Action_Enable_Label>移動射擊！</RG_Action_Enable_Label>
+  <RG_Action_Disable_Label>禁用移動射擊</RG_Action_Disable_Label>
+  <RG_Action_Disable_Description>禁用移動射擊模式</RG_Action_Disable_Description>
+  <RG_Action_Enable_Description>啟用移動射擊，一種可以在奔跑狀態時允許射擊的模式。射擊時，奔跑會造成精準度與運動性能的懲罰(減益)</RG_Action_Enable_Description>
+
+</LanguageData>
