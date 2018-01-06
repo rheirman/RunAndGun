@@ -60,19 +60,16 @@ namespace RunAndGun.Utilities
 
         private static bool DrawIconForWeapon(ThingDef weapon, KeyValuePair<String, WeaponRecord> item, Rect contentRect, Vector2 iconOffset, int buttonID)
         {
-            var iconTex = weapon.uiIcon;
 
-            Graphic g = weapon.graphicData.Graphic;
+            var iconTex = weapon.uiIcon;
             Color color = getColor(weapon);
             Color colorTwo = getColor(weapon);
-            if( weapon.graphicData == null || weapon.graphicData.Graphic == null)
+            Graphic g2 = null;
+
+            if (weapon.graphicData != null && weapon.graphicData.Graphic != null)
             {
-                return false;
-            }
-            Graphic g2 = weapon.graphicData.Graphic.GetColoredVersion(g.Shader, color, colorTwo);
-            if (g2 == null)
-            {
-                return false; 
+                Graphic g = weapon.graphicData.Graphic;
+                g2 = weapon.graphicData.Graphic.GetColoredVersion(g.Shader, color, colorTwo);
             }
 
             var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, IconSize, IconSize);
@@ -83,6 +80,7 @@ namespace RunAndGun.Utilities
             string label = weapon.label;
 
             TooltipHandler.TipRegion(iconRect, label);
+
             MouseoverSounds.DoRegion(iconRect, SoundDefOf.MouseoverCommand);
             if (Mouse.IsOver(iconRect))
             {
@@ -104,10 +102,15 @@ namespace RunAndGun.Utilities
             {
                 resolvedIcon = weapon.uiIcon;
             }
-            else
+            else if (g2 != null)
             {
                 resolvedIcon = g2.MatSingle.mainTexture;
             }
+            else
+            {
+                resolvedIcon = new Texture();
+            }
+
             GUI.color = color;
             GUI.DrawTexture(iconRect, resolvedIcon);
             GUI.color = Color.white;
