@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <RG_tab1>Pesante/Leggero...</RG_tab1>
+ <RG_tab2>Vieta armi...</RG_tab2>
+ <RG_Tabs_Title>Opzioni avanzate</RG_Tabs_Title>
+ <RG_WeaponForbidder_Title>Vieta RunAndGun per le armi</RG_WeaponForbidder_Title>
+ <RG_WeaponForbidder_Description>Seleziona le armi che vuoi vietare per RunAndGun</RG_WeaponForbidder_Description>
+ <RG_Forbid>Vietate</RG_Forbid>
+ <RG_Allow>Permesse</RG_Allow>
+ <RG_AccuracyPenalty_Title>Penalità sulla precisione(%)</RG_AccuracyPenalty_Title>
+ <RG_AccuracyPenalty_Description>Penalità sulla precisione quando il la modalità Run and Gun è attiva</RG_AccuracyPenalty_Description>
+ <RG_MovementPenaltyHeavy_Title>Penalità di movimento con armi pesanti (%)</RG_MovementPenaltyHeavy_Title>
+ <RG_MovementPenaltyHeavy_Description>Penalità di movimento con le armi pesanti durante il fuoco</RG_MovementPenaltyHeavy_Description>
+ <RG_MovementPenaltyLight_Title>Penalità di movimento con armi leggere (%)</RG_MovementPenaltyLight_Title>
+ <RG_MovementPenaltyLight_Description>Penalità di movimento con le armi leggere durante il fuoco</RG_MovementPenaltyLight_Description>
+ <RG_EnableRGForAI_Title>Abilità RunAndGun per l'AI</RG_EnableRGForAI_Title>
+ <RG_EnableRGForAI_Description>Abilita RunAndGun per tutta l'AI. Attenzione, rende l'AI estremamente letale</RG_EnableRGForAI_Description>
+ <RG_EnableRGForFleeChance_Title>Fuoco durante la fuga(%)</RG_EnableRGForFleeChance_Title>
+ <RG_EnableRGForFleeChance_Description>Possibilità che i nemici aprino il fuoco durante la fuga</RG_EnableRGForFleeChance_Description>
+ <RG_WeightLimitFilter_Title>Filtra armi pesanti/leggere per peso</RG_WeightLimitFilter_Title>
+ <RG_WeightLimitFilter_Description>Utilizza il cursore per impostare il limite di peso utilizzato per il filtro. Le armi vengono categorizzate come pesanti o leggere in base a questo limite. Armi pesanti ricevono una penalità di movimento diversa dalle armi leggere. </RG_WeightLimitFilter_Description>
+ <RG_WeaponSelection_Title>Quali armi sono leggere/pesanti? \n(utilizzato per la penalità di movimento)</RG_WeaponSelection_Title>
+ <RG_WeaponSelection_Description>Seleziona le armi per configurare quando un'arma deve essere considerata se pesante o leggera quando la penalità di movimento viene applicata</RG_WeaponSelection_Description>
+ <RG_Button_Apply>Apply</RG_Button_Apply>
+ <RG_ConsideredLight>Armi leggere</RG_ConsideredLight>
+ <RG_ConsideredHeavy>Armi pesanti</RG_ConsideredHeavy>
+ <RG_Action_Enable_Label>Run and Gun</RG_Action_Enable_Label>
+ <RG_Action_Disable_Label>Disattiva Run and Gun</RG_Action_Disable_Label>
+ <RG_Action_Disable_Description>Disattiva la modalità Run and Gun</RG_Action_Disable_Description>
+ <RG_Action_Enable_Description>Attiva la modalità Run and Gun, una modalità dove il colono può sparare mentre corre. Sparare durante la corsa causa una penalità di movimento e di precisione</RG_Action_Enable_Description>
+</LanguageData>
