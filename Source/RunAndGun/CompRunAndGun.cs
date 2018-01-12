@@ -29,8 +29,13 @@ namespace RunAndGun
 
         public override void CompTickRare()
         {
-            if(pawn.equipment != null && pawn.equipment.Primary != null && !Settings.weaponForbidder.Value.InnerList.Contains(pawn.equipment.Primary.def.defName)){
-                isEnabled = false;
+            if (pawn.equipment != null && pawn.equipment.Primary != null)
+            {
+                bool found = Settings.weaponForbidder.Value.InnerList.TryGetValue(pawn.equipment.Primary.def.defName, out WeaponRecord value);
+                if (found && value.isSelected)
+                {
+                    isEnabled = false;
+                }
             }
         }
 

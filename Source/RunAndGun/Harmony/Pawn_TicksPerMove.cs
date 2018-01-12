@@ -32,15 +32,14 @@ namespace RunAndGun.Harmony
                 float factor = ((float)(100 + penalty) / 100);
                 __result = (int)Math.Floor((float)__result * factor);
             }
-
         }
-
         static bool hasLightWeapon(Pawn pawn)
         {
             if( pawn.equipment.Primary != null)
             {
-                HashSet<string> lightWeapons = Settings.weaponSelecter.Value.InnerList;
-                if (lightWeapons.Contains(pawn.equipment.Primary.def.defName))
+
+                bool found = Settings.weaponSelecter.Value.InnerList.TryGetValue(pawn.equipment.Primary.def.defName, out WeaponRecord value);
+                if (found && !value.isSelected)
                 {
                     return true;
                 }

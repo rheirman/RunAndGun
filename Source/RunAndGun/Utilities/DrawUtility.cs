@@ -20,9 +20,11 @@ namespace RunAndGun.Utilities
 
         private static readonly Color iconBaseColor = new Color(0.5f, 0.5f, 0.5f, 1f);
         private static readonly Color iconMouseOverColor = new Color(0.6f, 0.6f, 0.4f, 1f);
+        private static Color background = new Color(0.5f, 0, 0, 0.1f);
 
         private static readonly Color SelectedOptionColor = new Color(0.5f, 1f, 0.5f, 1f);
         private static readonly Color constGrey = new Color(0.8f, 0.8f, 0.8f, 1f);
+        private static Color exceptionBackground = new Color(0f, 0.5f, 0, 0.1f);
 
 
         private static void drawBackground(Rect rect, Color background)
@@ -56,14 +58,19 @@ namespace RunAndGun.Utilities
 
 
 
-        private static bool DrawIconForWeapon(ThingDef weapon, Rect contentRect, Vector2 iconOffset, int buttonID)
+        private static bool DrawIconForWeapon(ThingDef weapon, KeyValuePair<String, WeaponRecord> item, Rect contentRect, Vector2 iconOffset, int buttonID)
         {
-            var iconTex = weapon.uiIcon;
 
-            Graphic g = weapon.graphicData.Graphic;
+            var iconTex = weapon.uiIcon;
             Color color = getColor(weapon);
             Color colorTwo = getColor(weapon);
-            Graphic g2 = weapon.graphicData.Graphic.GetColoredVersion(g.Shader, color, colorTwo);
+            Graphic g2 = null;
+
+            if (weapon.graphicData != null && weapon.graphicData.Graphic != null)
+            {
+                Graphic g = weapon.graphicData.Graphic;
+                g2 = weapon.graphicData.Graphic.GetColoredVersion(g.Shader, color, colorTwo);
+            }
 
             var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, IconSize, IconSize);
 
@@ -73,9 +80,14 @@ namespace RunAndGun.Utilities
             string label = weapon.label;
 
             TooltipHandler.TipRegion(iconRect, label);
+
             MouseoverSounds.DoRegion(iconRect, SoundDefOf.MouseoverCommand);
             if (Mouse.IsOver(iconRect))
             {
+                GUI.color = iconMouseOverColor;
+                GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("square", true));
+            }
+            else if(item.Value.isException == true){
                 GUI.color = iconMouseOverColor;
                 GUI.DrawTexture(iconRect, ContentFinder<Texture2D>.Get("square", true));
             }
@@ -90,10 +102,15 @@ namespace RunAndGun.Utilities
             {
                 resolvedIcon = weapon.uiIcon;
             }
-            else
+            else if (g2 != null)
             {
                 resolvedIcon = g2.MatSingle.mainTexture;
             }
+            else
+            {
+                resolvedIcon = new Texture();
+            }
+
             GUI.color = color;
             GUI.DrawTexture(iconRect, resolvedIcon);
             GUI.color = Color.white;
@@ -109,14 +126,16 @@ namespace RunAndGun.Utilities
 
 
 
-        public static bool CustomDrawer_Filter(Rect rect, SettingHandle<float> slider, SettingHandle<bool> button, bool def_isPercentage, float def_min, float def_max, Color background)
+        public static bool CustomDrawer_Filter(Rect rect, SettingHandle<float> slider, bool def_isPercentage, float def_min, float def_max, Color background)
         {
             drawBackground(rect, background);
+            int labelWidth = 50;
 
             Rect sliderPortion = new Rect(rect);
-            sliderPortion.width = sliderPortion.width - 120;
+            sliderPortion.width = sliderPortion.width - labelWidth;
+
             Rect labelPortion = new Rect(rect);
-            labelPortion.width = 50;
+            labelPortion.width = labelWidth;
             labelPortion.position = new Vector2(sliderPortion.position.x + sliderPortion.width + 5f, sliderPortion.position.y + 4f);
 
             sliderPortion = sliderPortion.ContractedBy(2f);
@@ -133,18 +152,6 @@ namespace RunAndGun.Utilities
                 change = true;
 
             slider.Value = val;
-
-            Rect buttonRect = new Rect(rect);
-            buttonRect.width = 70;
-            buttonRect.position = new Vector2(labelPortion.position.x + labelPortion.width - 10f, sliderPortion.position.y);
-
-            bool clicked = Widgets.ButtonText(buttonRect, "RG_Button_Apply".Translate());
-            if (clicked)
-            {
-                button.Value = true;
-                return true;
-            }
-
             return change;
         }
 
@@ -186,7 +193,40 @@ namespace RunAndGun.Utilities
             return change;
         }
 
-        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<StringHashSetHandler> setting, Color background, bool shouldFilter, string yesText = "Light", string noText = "Heavy", bool excludeNeolithic = false)
+        internal static void filterWeapons(ref SettingHandle<DictWeaponRecordHandler> setting, List<ThingDef> allWeapons, SettingHandle<float> filter = null)
+        {
+            if (setting.Value == null)
+            {
+                setting.Value = new DictWeaponRecordHandler();
+            }
+
+            Dictionary<String, WeaponRecord> selection = new Dictionary<string, WeaponRecord>();
+            foreach (ThingDef weapon in allWeapons)
+            {
+                bool shouldSelect = false;
+                if (filter != null)
+                {
+                    float mass = weapon.GetStatValueAbstract(StatDefOf.Mass);
+                    shouldSelect = mass >= filter.Value;
+                }
+                WeaponRecord value = null;
+                bool found = setting.Value.InnerList.TryGetValue(weapon.defName, out value);
+                if (found && value.isException)
+                {
+                    selection.Add(weapon.defName, value);
+                }
+                else
+                {
+                    selection.Add(weapon.defName, new WeaponRecord(shouldSelect, false, weapon.label));
+                }
+
+            }
+            selection = selection.OrderBy(d => d.Value.label).ToDictionary(d => d.Key, d => d.Value);
+            setting.Value.InnerList = selection;
+        }
+
+
+        internal static bool CustomDrawer_MatchingWeapons_active(Rect wholeRect, SettingHandle<DictWeaponRecordHandler> setting, List<ThingDef> allWeapons, SettingHandle<float> filter = null, string yesText = "Light weapon", string noText = "Heavy weapon")
         {
             drawBackground(wholeRect, background);
 
@@ -209,15 +249,60 @@ namespace RunAndGun.Utilities
             rightRect.position = new Vector2(rightRect.position.x, rightRect.position.y + TextMargin);
 
             int iconsPerRow = (int)(leftRect.width / (IconGap + IconSize));
+            bool change = false;
+            int numSelected = 0;
+
+            filterWeapons(ref setting, allWeapons, filter);
+            Dictionary<string, WeaponRecord> selection = setting.Value.InnerList;
+
+            foreach (KeyValuePair<String, WeaponRecord> item in selection)
+            {
+                if (item.Value.isSelected)
+                {
+                    numSelected++;
+                }
+            }
 
 
-            List<ThingStuffPair> allWeapons = WeaponUtility.getAllWeapons();
-            allWeapons.Sort(new MassComparer());
+            int biggerRows = Math.Max(numSelected / iconsPerRow, (selection.Count - numSelected) / iconsPerRow) + 1;
+            setting.CustomDrawerHeight = (biggerRows * IconSize) + (biggerRows * IconGap) + TextMargin;
+            Dictionary<String, ThingDef> allWeaponsDict = allWeapons.ToDictionary(o => o.defName, o => o);
+            int indexLeft = 0;
+            int indexRight = 0;
+            foreach (KeyValuePair<String, WeaponRecord> item in selection)
+            {
+                Rect rect = item.Value.isSelected ? rightRect : leftRect;
+                int index = item.Value.isSelected ? indexRight: indexLeft;
+                if (item.Value.isSelected)
+                {
+                    indexRight++;
+                }
+                else
+                {
+                    indexLeft++;
+                }
 
+                int collum = (index % iconsPerRow);
+                int row = (index / iconsPerRow);
+                ThingDef weapon = null;
+                bool found = allWeaponsDict.TryGetValue(item.Key, out weapon);
+                bool interacted = false;
+                if (found)
+                {
+                    interacted = DrawIconForWeapon(weapon, item, rect, new Vector2(IconSize * collum + collum * IconGap, IconSize * row + row * IconGap), index);
+                }
+                if (interacted)
+                {
+                    change = true;
+                    item.Value.isSelected = !item.Value.isSelected;
+                    item.Value.isException = !item.Value.isException;
+                }
+            }
 
+            /*
             if (setting.Value == null || (Settings.applyFilter.Value == true))
             {
-                setting.Value = new StringHashSetHandler();
+                setting.Value = new DictWeaponRecordHandler();
                 for (int i = 0; i < allWeapons.Count; i++)
                 {
 
@@ -286,6 +371,7 @@ namespace RunAndGun.Utilities
                     selection.Add(unselectedWeapons[i].thing.defName);
                 }
             }
+            */
             if (change)
             {
                 setting.Value.InnerList = selection;
