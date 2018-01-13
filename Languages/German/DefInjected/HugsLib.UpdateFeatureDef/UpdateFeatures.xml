@@ -15,5 +15,11 @@
 - Das Problem, dass die Wartezeit zwischen Schüssen umgangen werden kann, wenn ein Kolonist stehen bleibt, wurde behoben.
 - Koreanische Übersetzung hinzugefügt.
 	</RunAndGun_1_18_2.content>
+	
+  <RunAndGun_1_18_3.content>RunAndGun wurde mit den folgenden Änderungen aktualisiert: 
+- Waffenauswahl zum verbieten/ erlauben in den Mod-Einstellungen wurde komplett überarbeitet und hat nun ein Nutzerfreundlicheres Design. 
+- Wenn neue Waffen-Mods installiert werden, wird der Gewichtsfilter automatisch darauf angewandt, also sollten neue Waffen-Mods nun problemlos nach der Installation funktionieren. 
+- Leider muss alles, das in der letzten Version in der Waffenauswahl eingestellt wurde, erneut eingestellt werden.
+	</RunAndGun_1_18_3.content>
 
 </LanguageData>
