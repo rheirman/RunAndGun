@@ -35,7 +35,7 @@ namespace RunAndGun.Harmony
         }
         static bool hasLightWeapon(Pawn pawn)
         {
-            if( pawn.equipment.Primary != null)
+            if( pawn.equipment != null && pawn.equipment.Primary != null)
             {
 
                 bool found = Settings.weaponSelecter.Value.InnerList.TryGetValue(pawn.equipment.Primary.def.defName, out WeaponRecord value);
