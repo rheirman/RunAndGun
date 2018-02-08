@@ -22,8 +22,8 @@ namespace RunAndGun
         internal static SettingHandle<int> accuracyPenalty;
         internal static SettingHandle<int> movementPenaltyHeavy;
         internal static SettingHandle<int> movementPenaltyLight;
-        internal static SettingHandle<int> enableForFleeChance;
-        internal static SettingHandle<bool> enableForAI;
+        public static SettingHandle<int> enableForFleeChance;
+        public static SettingHandle<bool> enableForAI;
         internal static SettingHandle<DictWeaponRecordHandler> weaponSelecter;
         internal static SettingHandle<DictWeaponRecordHandler> weaponForbidder;
         internal static SettingHandle<String> tabsHandler;
