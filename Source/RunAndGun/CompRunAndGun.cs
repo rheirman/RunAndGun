@@ -44,7 +44,7 @@ namespace RunAndGun
         {
             base.Initialize(props);
             Pawn pawn = (Pawn)(parent as Pawn);
-            bool enableRGForAI = Base.enableForAI.Value;
+            bool enableRGForAI = Base.enableRGForAI.Value;
             if (!pawn.IsColonist && enableRGForAI)
             {
                 isEnabled = true;

@@ -22,8 +22,8 @@ namespace RunAndGun
         internal static SettingHandle<int> accuracyPenalty;
         internal static SettingHandle<int> movementPenaltyHeavy;
         internal static SettingHandle<int> movementPenaltyLight;
-        public static SettingHandle<int> enableForFleeChance;
-        public static SettingHandle<bool> enableForAI;
+        public static SettingHandle<int> enableRGForFleeChance;
+        public static SettingHandle<bool> enableRGForAI;
         internal static SettingHandle<DictWeaponRecordHandler> weaponSelecter;
         internal static SettingHandle<DictWeaponRecordHandler> weaponForbidder;
         internal static SettingHandle<String> tabsHandler;
@@ -48,9 +48,9 @@ namespace RunAndGun
 
 
 
-            enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
-            enableForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
-            enableForFleeChance.VisibilityPredicate = delegate { return enableForAI.Value; };
+            enableRGForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
+            enableRGForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            enableRGForFleeChance.VisibilityPredicate = delegate { return enableRGForAI.Value; };
 
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "RG_AccuracyPenalty_Title".Translate(), "RG_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
 

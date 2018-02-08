@@ -18,7 +18,7 @@ namespace RunAndGun.Harmony
         static void Postfix(MentalState __instance)
         {
             CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
-            if (comp != null && Base.enableForAI.Value)
+            if (comp != null && Base.enableRGForAI.Value)
             {
                 comp.isEnabled = shouldRunAndGun();
 
@@ -27,7 +27,7 @@ namespace RunAndGun.Harmony
         static bool shouldRunAndGun()
         {
             var rndInt = new Random(DateTime.Now.Millisecond).Next(1, 100);
-            int chance = Base.enableForFleeChance.Value;
+            int chance = Base.enableRGForFleeChance.Value;
             if (rndInt <= chance)
             {
                 return true;
