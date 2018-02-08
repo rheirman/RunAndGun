@@ -23,11 +23,11 @@ namespace RunAndGun.Harmony
                 int penalty = 0;
                 if (hasLightWeapon(__instance))
                 {
-                    penalty = Settings.movementPenaltyLight.Value;
+                    penalty = Base.movementPenaltyLight.Value;
                 }
                 else
                 {
-                    penalty = Settings.movementPenaltyHeavy.Value;
+                    penalty = Base.movementPenaltyHeavy.Value;
                 }
                 float factor = ((float)(100 + penalty) / 100);
                 __result = (int)Math.Floor((float)__result * factor);
@@ -38,7 +38,7 @@ namespace RunAndGun.Harmony
             if( pawn.equipment != null && pawn.equipment.Primary != null)
             {
 
-                bool found = Settings.weaponSelecter.Value.InnerList.TryGetValue(pawn.equipment.Primary.def.defName, out WeaponRecord value);
+                bool found = Base.weaponSelecter.Value.InnerList.TryGetValue(pawn.equipment.Primary.def.defName, out WeaponRecord value);
                 if (found && !value.isSelected)
                 {
                     return true;

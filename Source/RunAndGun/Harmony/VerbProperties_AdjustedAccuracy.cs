@@ -33,7 +33,7 @@ namespace RunAndGun.Harmony
             }
             if (pawn.stances.curStance is Stance_RunAndGun || pawn.stances.curStance is Stance_RunAndGun_Cooldown)
             {
-                int value = Settings.accuracyPenalty.Value;
+                int value = Base.accuracyPenalty.Value;
                 float factor = ((float)(100 - value) / 100);
                 __result *= factor;
             }

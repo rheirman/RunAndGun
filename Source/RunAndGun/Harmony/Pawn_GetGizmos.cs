@@ -29,7 +29,7 @@ namespace RunAndGun.Harmony
             }
             if (__instance.equipment != null && __instance.equipment.Primary != null)
             {
-                bool found = Settings.weaponForbidder.Value.InnerList.TryGetValue(__instance.equipment.Primary.def.defName, out WeaponRecord value);
+                bool found = Base.weaponForbidder.Value.InnerList.TryGetValue(__instance.equipment.Primary.def.defName, out WeaponRecord value);
                 if (found && value.isSelected)
                 {
                     return;

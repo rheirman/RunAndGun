@@ -13,7 +13,7 @@ using Verse.Sound;
 
 namespace RunAndGun
 {
-    public class Settings : ModBase
+    public class Base : ModBase
     {
         public override string ModIdentifier
         {
