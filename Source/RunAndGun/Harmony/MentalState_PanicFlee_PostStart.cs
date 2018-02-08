@@ -27,8 +27,7 @@ namespace RunAndGun.Harmony
         static bool shouldRunAndGun()
         {
             var rndInt = new Random(DateTime.Now.Millisecond).Next(1, 100);
-            ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
-            int chance = settings.GetHandle<int>("enableRGForFleeChance").Value;
+            int chance = Settings.enableForFleeChance.Value;
             if (rndInt <= chance)
             {
                 return true;
