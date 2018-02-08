@@ -33,8 +33,7 @@ namespace RunAndGun.Harmony
             }
             if (pawn.stances.curStance is Stance_RunAndGun || pawn.stances.curStance is Stance_RunAndGun_Cooldown)
             {
-                ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
-                int value = settings.GetHandle<int>("accuracyPenalty").Value;
+                int value = Settings.accuracyPenalty.Value;
                 float factor = ((float)(100 - value) / 100);
                 __result *= factor;
             }

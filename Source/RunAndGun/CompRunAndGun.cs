@@ -44,8 +44,7 @@ namespace RunAndGun
         {
             base.Initialize(props);
             Pawn pawn = (Pawn)(parent as Pawn);
-            ModSettingsPack settings = HugsLibController.SettingsManager.GetModSettings("RunAndGun");
-            bool enableRGForAI = settings.GetHandle<bool>("enableRGForAI").Value;
+            bool enableRGForAI = Settings.enableForAI.Value;
             if (!pawn.IsColonist && enableRGForAI)
             {
                 isEnabled = true;
