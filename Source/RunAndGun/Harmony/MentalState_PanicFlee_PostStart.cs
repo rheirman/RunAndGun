@@ -11,16 +11,19 @@ using HugsLib;
 
 namespace RunAndGun.Harmony
 {
-    [HarmonyPatch(typeof(MentalState), "PostStart")]
+    [HarmonyPatch(typeof(MentalStateHandler), "TryStartMentalState")]
     public class MentalState_PanicFlee_PostStart
     {
-        static void Prefix(MentalState __instance)
+        static void Postfix(MentalStateHandler __instance, MentalStateDef stateDef)
         {
             Log.Message("1");
-            if(!(__instance.GetType() == typeof(MentalState_PanicFlee))){
-                return; 
+            if(stateDef != MentalStateDefOf.PanicFlee)
+            {
+                return;
             }
-            CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
+            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+
+            CompRunAndGun comp = pawn.TryGetComp<CompRunAndGun>();
             Log.Message("2");
 
             if (comp != null && RunAndGun.Base.enableRGForAI.Value)
