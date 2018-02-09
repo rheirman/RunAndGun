@@ -12,12 +12,15 @@ using HugsLib;
 namespace RunAndGun.Harmony
 {
 
-    [HarmonyPatch(typeof(MentalState_PanicFlee), "PostStart")]
+    [HarmonyPatch(typeof(MentalState), "PostStart")]
     public class MentalState_PanicFlee_PostStart
     {
-        static void Postfix(MentalState_PanicFlee __instance)
+        static void Postfix(MentalState __instance)
         {
             Log.Message("1");
+            if(!(__instance.GetType() == typeof(MentalState_PanicFlee))){
+                return; 
+            }
             CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
             Log.Message("2");
 
