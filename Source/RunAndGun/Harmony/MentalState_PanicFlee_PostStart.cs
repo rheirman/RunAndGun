@@ -11,11 +11,10 @@ using HugsLib;
 
 namespace RunAndGun.Harmony
 {
-    /*
     [HarmonyPatch(typeof(MentalState), "PostStart")]
     public class MentalState_PanicFlee_PostStart
     {
-        static void Postfix(MentalState __instance)
+        static void Prefix(MentalState __instance)
         {
             Log.Message("1");
             if(!(__instance.GetType() == typeof(MentalState_PanicFlee))){
@@ -53,5 +52,4 @@ namespace RunAndGun.Harmony
 
         }
     }
-            */
 }
