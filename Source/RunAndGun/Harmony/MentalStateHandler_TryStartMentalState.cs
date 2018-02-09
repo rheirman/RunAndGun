@@ -11,17 +11,22 @@ using HugsLib;
 
 namespace RunAndGun.Harmony
 {
-
-    [HarmonyPatch(typeof(MentalState_PanicFlee), "PostStart")]
-    static class MentalState_PanicFlee_PostStart
+    [HarmonyPatch(typeof(MentalStateHandler), "TryStartMentalState")]
+    public class MentalStateHandler_TryStartMentalState
     {
-        static void Postfix(MentalState __instance)
+        static void Postfix(MentalStateHandler __instance, MentalStateDef stateDef)
         {
-            CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
+            if (stateDef != MentalStateDefOf.PanicFlee)
+            {
+                return;
+            }
+            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+
+            CompRunAndGun comp = pawn.TryGetComp<CompRunAndGun>();
+
             if (comp != null && Base.enableForAI.Value)
             {
                 comp.isEnabled = shouldRunAndGun();
-
             }
         }
         static bool shouldRunAndGun()
@@ -39,5 +44,4 @@ namespace RunAndGun.Harmony
 
         }
     }
-            
 }

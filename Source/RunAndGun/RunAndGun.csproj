@@ -57,7 +57,7 @@
     <Compile Include="CompRunAndGun.cs" />
     <Compile Include="CompProperties_RunAndGun.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Harmony\MentalState_PanicFlee_PostStart.cs" />
+    <Compile Include="Harmony\MentalStateHandler_TryStartMentalState.cs" />
     <Compile Include="Harmony\JobDriver_Goto_SetupToils.cs" />
     <Compile Include="Harmony\Pawn_GetGizmos.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
