@@ -17,6 +17,7 @@ namespace RunAndGun.Harmony
     {
         static void Postfix(MentalState __instance)
         {
+            /*
             Log.Message("1");
             CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
             Log.Message("2");
@@ -29,6 +30,7 @@ namespace RunAndGun.Harmony
                 Log.Message("9");
 
             }
+            */
         }
         static bool shouldRunAndGun()
         {
