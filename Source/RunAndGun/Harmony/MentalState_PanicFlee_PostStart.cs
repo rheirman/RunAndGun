@@ -11,7 +11,7 @@ using HugsLib;
 
 namespace RunAndGun.Harmony
 {
-
+    /*
     [HarmonyPatch(typeof(MentalState), "PostStart")]
     public class MentalState_PanicFlee_PostStart
     {
@@ -53,5 +53,5 @@ namespace RunAndGun.Harmony
 
         }
     }
-            
+            */
 }
