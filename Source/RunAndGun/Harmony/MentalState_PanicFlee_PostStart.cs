@@ -15,9 +15,8 @@ namespace RunAndGun.Harmony
     [HarmonyPatch(typeof(MentalState_PanicFlee), "PostStart")]
     public class MentalState_PanicFlee_PostStart
     {
-        static void Postfix(MentalState __instance)
+        static void Postfix(MentalState_PanicFlee __instance)
         {
-            /*
             Log.Message("1");
             CompRunAndGun comp = __instance.pawn.TryGetComp<CompRunAndGun>();
             Log.Message("2");
@@ -30,7 +29,6 @@ namespace RunAndGun.Harmony
                 Log.Message("9");
 
             }
-            */
         }
         static bool shouldRunAndGun()
         {
