@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RG_tab1>Establecer pesada/ligera...</RG_tab1>
+  <RG_tab2>Prohibir armas...</RG_tab2>
+  <RG_Tabs_Title>Opciones avanzadas</RG_Tabs_Title>
+  <RG_WeaponForbidder_Title>Prohibir RunAndGun para armas</RG_WeaponForbidder_Title>
+  <RG_WeaponForbidder_Description>Selecciona las armas que te gustaría prohibir en RunAndGun.</RG_WeaponForbidder_Description>
+  <RG_Forbid>Prohibir</RG_Forbid>
+  <RG_Allow>Permitir</RG_Allow>
+  <RG_AccuracyPenalty_Title>Penalización de precisión(%)</RG_AccuracyPenalty_Title>
+  <RG_AccuracyPenalty_Description>La penalización de precisión aplica cuando se corre y la pistola está habilitada.</RG_AccuracyPenalty_Description>
+  <RG_MovementPenaltyHeavy_Title>Penalización por movimiento para armas pesadas (%)</RG_MovementPenaltyHeavy_Title>
+  <RG_MovementPenaltyHeavy_Description>La penalización que aplica al moverse y disparar armas pesadas.</RG_MovementPenaltyHeavy_Description>
+  <RG_MovementPenaltyLight_Title>Penalización por movimiento para armas ligeras (%)</RG_MovementPenaltyLight_Title>
+  <RG_MovementPenaltyLight_Description>La penalización que aplica al moverse y disparar armas ligeras.</RG_MovementPenaltyLight_Description>
+  <RG_EnableRGForAI_Title>Habilita RunAndGun para IA</RG_EnableRGForAI_Title>
+  <RG_EnableRGForAI_Description>Permite RunAndGun para todos los colonos de IA. Ten cuidado, esto los hace increíblemente mortales.</RG_EnableRGForAI_Description>
+  <RG_EnableRGForFleeChance_Title>Huir y disparar(%)</RG_EnableRGForFleeChance_Title>
+  <RG_EnableRGForFleeChance_Description>Posibilidad de que los colonos enemigos que huyen utilicen RunAndGun mientras corren.</RG_EnableRGForFleeChance_Description>
+  <RG_WeightLimitFilter_Title>Filtrar el límite de pesado/ligero por peso</RG_WeightLimitFilter_Title>
+  <RG_WeightLimitFilter_Description>Use el control deslizante para establecer el límite de peso que se usa para el filtro. Cuando haga clic en aplicar, las armas se clasificarán como pesadas o ligeras en función de este límite de peso. Las armas pesadas reciben una penalización de movimiento diferente a las armas ligeras.</RG_WeightLimitFilter_Description>
+  <RG_WeaponSelection_Title>¿Qué armas son livianas/pesadas?\n(usado para la penalización de movimiento)</RG_WeaponSelection_Title>
+  <RG_WeaponSelection_Description>Haga clic en las armas para configurar si deben considerarse armas pesadas o ligeras cuando se aplica la penalización de movimiento</RG_WeaponSelection_Description>
+  <RG_Button_Apply>Aplicar</RG_Button_Apply>
+  <RG_ConsideredLight>Armas ligeras</RG_ConsideredLight>
+  <RG_ConsideredHeavy>Armas pesadas</RG_ConsideredHeavy>
+  <RG_Action_Enable_Label>RunAndGun</RG_Action_Enable_Label>
+  <RG_Action_Disable_Label>Disabilitar RunAndGun</RG_Action_Disable_Label>
+  <RG_Action_Disable_Description>Desactiva el modo RunAndGun</RG_Action_Disable_Description>
+  <RG_Action_Enable_Description>Permite "Correr y Disparar", un modo en el que los colonos pueden disparar mientras corren. Disparar mientras se corre conlleva una una penalización de precisión y de movimiento.</RG_Action_Enable_Description>
+
+</LanguageData>
