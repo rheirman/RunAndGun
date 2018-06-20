@@ -11,7 +11,7 @@ namespace RunAndGun.Harmony
     [HarmonyPatch(typeof(Verb), "TryStartCastOn")]
     static class Verb_TryStartCastOn
     {
-        static bool Prefix(Verb __instance, ref LocalTargetInfo castTarg, ref bool surpriseAttack, ref bool canFreeIntercept)
+        static bool Prefix(Verb __instance, ref LocalTargetInfo castTarg, ref bool surpriseAttack, bool canHitNonTargetPawns = true)
         {
             Pawn pawn = __instance.CasterPawn;
             if (__instance.caster == null)
@@ -51,7 +51,7 @@ namespace RunAndGun.Harmony
             }
 
             Traverse.Create(__instance).Field("surpriseAttack").SetValue(surpriseAttack);
-            Traverse.Create(__instance).Field("canFreeInterceptNow").SetValue(canFreeIntercept);
+            Traverse.Create(__instance).Field("canHitNonTargetPawnsNow").SetValue(canHitNonTargetPawns);
             Traverse.Create(__instance).Field("currentTarget").SetValue(castTarg);
 
             if (__instance.CasterIsPawn && __instance.verbProps.warmupTime > 0f)

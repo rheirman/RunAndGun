@@ -81,7 +81,7 @@ namespace RunAndGun.Utilities
 
             TooltipHandler.TipRegion(iconRect, label);
 
-            MouseoverSounds.DoRegion(iconRect, SoundDefOf.MouseoverCommand);
+            MouseoverSounds.DoRegion(iconRect, SoundDefOf.Mouseover_Command);
             if (Mouse.IsOver(iconRect))
             {
                 GUI.color = iconMouseOverColor;

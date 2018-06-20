@@ -48,8 +48,8 @@ namespace RunAndGun.Harmony
                 {
                     return;
                 }
-                Verb verb = __instance.pawn.TryGetAttackVerb(true);
-                if (verb != null && !verb.verbProps.MeleeRange)
+                Verb verb = __instance.pawn.TryGetAttackVerb(null);
+                if (verb != null)
                 {
                     TargetScanFlags targetScanFlags = TargetScanFlags.NeedLOSToPawns | TargetScanFlags.NeedLOSToNonPawns | TargetScanFlags.NeedThreat;
                     if (verb.IsIncendiary())
