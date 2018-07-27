@@ -56,7 +56,7 @@ namespace RunAndGun.Harmony
                     {
                         targetScanFlags |= TargetScanFlags.NeedNonBurning;
                     }
-                    Thing thing = (Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(__instance.pawn, null, verb.verbProps.range, verb.verbProps.minRange, targetScanFlags);
+                    Thing thing = (Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(__instance.pawn, targetScanFlags, null, 0f, 9999f);
                     if (thing != null)
                     {
                         __instance.pawn.TryStartAttack(thing);
