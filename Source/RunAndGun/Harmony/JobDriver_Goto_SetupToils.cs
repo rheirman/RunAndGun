@@ -27,7 +27,7 @@ namespace RunAndGun.Harmony
                 Toil toil = toils.ElementAt(0);
                 toil.AddPreTickAction(delegate
                 {
-                    if (jobDriver.pawn != null && !jobDriver.pawn.IsBurning() && (jobDriver.pawn.Drafted || !jobDriver.pawn.IsColonist) && !jobDriver.pawn.Downed)
+                    if (jobDriver.pawn != null && jobDriver.pawn.IsHashIntervalTick(10) && !jobDriver.pawn.IsBurning() && (jobDriver.pawn.Drafted || !jobDriver.pawn.IsColonist) && !jobDriver.pawn.Downed)
                     {
                         checkForAutoAttack(jobDriver);
                     }
