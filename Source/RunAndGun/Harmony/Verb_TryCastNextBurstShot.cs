@@ -20,7 +20,6 @@ namespace RunAndGun.Harmony
             {
                 if (instruction.operand == typeof(Pawn_StanceTracker).GetMethod("SetStance"))
                 {
-                    Log.Message("Patching TryCastNextBurstShot RunAndGun");
                     yield return new CodeInstruction(OpCodes.Call, typeof(Verb_TryCastNextBurstShot).GetMethod("SetStanceRunAndGun"));
                 }
                 else
@@ -31,19 +30,15 @@ namespace RunAndGun.Harmony
         }
         public static void SetStanceRunAndGun(Pawn_StanceTracker stanceTracker, Stance_Cooldown stance)
         {
-            Log.Message("calling SetStanceRunAndGun");
             if(stanceTracker.pawn.equipment.Primary == stance.verb.EquipmentSource)
             {
-                Log.Message("SetStanceRunAndGun for primary equip");
 
                 if ((((stanceTracker.curStance is Stance_RunAndGun) || (stanceTracker.curStance is Stance_RunAndGun_Cooldown))) && stanceTracker.pawn.pather.Moving)
                 {
-                    Log.Message("Setting stance run and gun cooldown");
                     stanceTracker.SetStance(new Stance_RunAndGun_Cooldown(stance.ticksLeft, stance.focusTarg, stance.verb));
                 }
                 else
                 {
-                    Log.Message("Setting stance cooldown");
                     stanceTracker.SetStance(stance);
                 }
             }
