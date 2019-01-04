@@ -6,14 +6,50 @@ using Verse;
 using Harmony;
 using RimWorld;
 using Verse.Sound;
+using System.Reflection.Emit;
 
 namespace RunAndGun.Harmony
 {
-
-
     [HarmonyPatch(typeof(Verb), "TryCastNextBurstShot")]
-    static class Verb_TryCastNextBurstShot
+    public static class Verb_TryCastNextBurstShot
     {
+        static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var instructionsList = new List<CodeInstruction>(instructions);
+            foreach (CodeInstruction instruction in instructionsList)
+            {
+                if (instruction.operand == typeof(Pawn_StanceTracker).GetMethod("SetStance"))
+                {
+                    Log.Message("Patching TryCastNextBurstShot RunAndGun");
+                    yield return new CodeInstruction(OpCodes.Call, typeof(Verb_TryCastNextBurstShot).GetMethod("SetStanceRunAndGun"));
+                }
+                else
+                {
+                    yield return instruction;
+                }
+            }
+        }
+        public static void SetStanceRunAndGun(Pawn_StanceTracker stanceTracker, Stance_Cooldown stance)
+        {
+            Log.Message("calling SetStanceRunAndGun");
+            if(stanceTracker.pawn.equipment.Primary == stance.verb.EquipmentSource)
+            {
+                Log.Message("SetStanceRunAndGun for primary equip");
+
+                if ((((stanceTracker.curStance is Stance_RunAndGun) || (stanceTracker.curStance is Stance_RunAndGun_Cooldown))) && stanceTracker.pawn.pather.Moving)
+                {
+                    Log.Message("Setting stance run and gun cooldown");
+                    stanceTracker.SetStance(new Stance_RunAndGun_Cooldown(stance.ticksLeft, stance.focusTarg, stance.verb));
+                }
+                else
+                {
+                    Log.Message("Setting stance cooldown");
+                    stanceTracker.SetStance(stance);
+                }
+            }
+        }
+
+        /*
         static bool Prefix(Verb __instance)
         {
             if (!__instance.CasterIsPawn || (!(__instance.CasterPawn.stances.curStance is Stance_RunAndGun) && !(__instance.CasterPawn.stances.curStance is Stance_RunAndGun_Cooldown)))
@@ -96,5 +132,7 @@ namespace RunAndGun.Harmony
 
             return false;
         }
+    }
+    */
     }
 }
