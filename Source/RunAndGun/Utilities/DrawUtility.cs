@@ -217,7 +217,8 @@ namespace RunAndGun.Utilities
                 }
                 else
                 {
-                    selection.Add(weapon.defName, new WeaponRecord(shouldSelect, false, weapon.label));
+                    bool isException = weapon.GetModExtension<DefModExtension_SettingDefaults>() is DefModExtension_SettingDefaults modExt && modExt.weaponForbidden;
+                    selection.Add(weapon.defName, new WeaponRecord(shouldSelect, isException, weapon.label));
                 }
 
             }
