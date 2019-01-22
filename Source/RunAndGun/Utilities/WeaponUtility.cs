@@ -13,7 +13,7 @@ namespace RunAndGun.Utilities
         {
             List<ThingDef> allWeapons = new List<ThingDef>();
 
-            Predicate<ThingDef> isWeapon = (ThingDef td) => td.equipmentType == EquipmentType.Primary && !td.weaponTags.NullOrEmpty<string>();
+            Predicate<ThingDef> isWeapon = (ThingDef td) => td.equipmentType == EquipmentType.Primary && !td.weaponTags.NullOrEmpty<string>() && !td.destroyOnDrop;
             foreach (ThingDef thingDef in from td in DefDatabase<ThingDef>.AllDefs
                                           where isWeapon(td)
                                           select td)

@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="CompRunAndGun.cs" />
     <Compile Include="CompProperties_RunAndGun.cs" />
+    <Compile Include="Dialog_CE.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Harmony\MentalStateHandler_TryStartMentalState.cs" />
     <Compile Include="Harmony\JobDriver_Goto_SetupToils.cs" />

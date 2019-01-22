@@ -19,6 +19,7 @@ namespace RunAndGun
         {
             get { return "RunAndGun"; }
         }
+        public static Base Instance { get; private set; }
         internal static SettingHandle<int> accuracyPenalty;
         internal static SettingHandle<int> movementPenaltyHeavy;
         internal static SettingHandle<int> movementPenaltyLight;
@@ -27,26 +28,43 @@ namespace RunAndGun
         internal static SettingHandle<DictWeaponRecordHandler> weaponSelecter;
         internal static SettingHandle<DictWeaponRecordHandler> weaponForbidder;
         internal static SettingHandle<String> tabsHandler;
-
+        List<ThingDef> allWeapons;
         internal static SettingHandle<float> weightLimitFilter;
+        internal static SettingHandle<bool> dialogCEShown;
 
 
         private const int minPercentage = 0;
         private const int maxPercentage = 100;
         private static Color highlight1 = new Color(0.5f, 0, 0, 0.1f);
         String[] tabNames = { "RG_tab1".Translate(), "RG_tab2".Translate()};
+        
 
+        public Base()
+        {
+            Instance = this;
+        }
         public override void DefsLoaded()
         {
             float maxWeightMelee;
             float maxWeightRanged;
-            List<ThingDef> allWeapons = WeaponUtility.getAllWeapons();
+            allWeapons = WeaponUtility.getAllWeapons();
             WeaponUtility.getHeaviestWeapons(allWeapons, out maxWeightMelee, out maxWeightRanged);
             maxWeightMelee += 1;
             maxWeightRanged += 1;
             float maxWeightTotal = Math.Max(maxWeightMelee, maxWeightRanged);
+            dialogCEShown = Settings.GetHandle<bool>("dialogCEShown", "", "", false);
+            dialogCEShown.VisibilityPredicate = delegate { return false; };
 
-
+            bool combatExtendedLoaded = AssemblyExists("CombatExtended");
+            Log.Message("Combat extended loaded from RunAndGun: " + combatExtendedLoaded);
+            if (combatExtendedLoaded && !dialogCEShown)
+            {
+                Find.WindowStack.Add(new Dialog_CE("RG_Dialog_CE_Title".Translate(), "RG_Dialog_CE_Description".Translate()));
+            }
+            if (!combatExtendedLoaded)
+            {
+                dialogCEShown.Value = false;
+            }
 
             enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);
             enableForFleeChance = Settings.GetHandle<int>("enableRGForFleeChance", "RG_EnableRGForFleeChance_Title".Translate(), "RG_EnableRGForFleeChance_Description".Translate(), 100, Validators.IntRangeValidator(minPercentage, maxPercentage));
@@ -77,8 +95,21 @@ namespace RunAndGun
             DrawUtility.filterWeapons(ref weaponForbidder, allWeapons, null);
 
         }
+        internal void ResetForbidden()
+        {
+            weaponForbidder.Value = null;
+            DrawUtility.filterWeapons(ref weaponForbidder, allWeapons, null);
+        }
 
-
+        private bool AssemblyExists(string assemblyName)
+        {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly.FullName.StartsWith(assemblyName))
+                    return true;
+            }
+            return false;
+        }
 
     }
 }

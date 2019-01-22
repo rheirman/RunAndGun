@@ -28,4 +28,10 @@
  <RG_Action_Disable_Label>Disable Run and Gun</RG_Action_Disable_Label>
  <RG_Action_Disable_Description>Disables Run and Gun mode</RG_Action_Disable_Description>
  <RG_Action_Enable_Description>Enables Run and Gun, a mode in which pawns can shoot while running. Shooting while running causes an accuracy and movement penalty</RG_Action_Enable_Description>
+ 
+ <RG_Dialog_CE_Title>Prepare RunAndGun for Combat Extended</RG_Dialog_CE_Title>
+ <RG_Dialog_CE_Description>It seems you're using the latest version Run and Gun and Combat Extended together for the first time. Combat Extended works great with Run and Gun, but not for each weapon. 
+For the best experience, please allow Combat Extended to set for which weapons running and gunning is forbidden. If you configured forbidden weapons for Run and Gun before, your configuration (of only that specific setting) will be overwritten.</RG_Dialog_CE_Description>
+ <RG_Dialog_CE_ConfirmButton>Allow</RG_Dialog_CE_ConfirmButton>
+ <RG_Dialog_CE_DisallowButton>Disallow</RG_Dialog_CE_DisallowButton>
 </LanguageData>
