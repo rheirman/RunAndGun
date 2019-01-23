@@ -6,14 +6,4 @@
 		<li Class = "RunAndGun.CompProperties_RunAndGun"></li>
 	  </value>
 	</Operation> 
-	<!--
-	<Operation Class ="PatchOperationAddModExtension">
-	   <xpath>*/ThingDef[defName ="Gun_Revolver"]</xpath>
-	   <value>
-		  <li Class="RunAndGun.DefModExtension_SettingDefaults">
-			 <weaponForbidden>true</weaponForbidden>
-		  </li>
-	   </value>
-	</Operation>
-	-->
 </Patch>
