@@ -64,6 +64,8 @@ namespace RunAndGun
             if (!combatExtendedLoaded)
             {
                 dialogCEShown.Value = false;
+                dialogCEShown.Unsaved = false;
+                //Base.
             }
 
             enableForAI = Settings.GetHandle<bool>("enableRGForAI", "RG_EnableRGForAI_Title".Translate(), "RG_EnableRGForAI_Description".Translate(), true);

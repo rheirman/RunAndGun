@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HugsLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,6 +68,7 @@ namespace RunAndGun
                 Base.Instance.ResetForbidden();
                 Close();
                 Base.dialogCEShown.Value = true;
+                HugsLibController.SettingsManager.SaveChanges();
             }
             GUI.color = prevColor;
             closeButtonRect = new Rect(inRect.width - CloseButSize.x, inRect.height - CloseButSize.y, CloseButSize.x, CloseButSize.y);
@@ -74,6 +76,7 @@ namespace RunAndGun
             {
                 Close();
                 Base.dialogCEShown.Value = true;
+                HugsLibController.SettingsManager.SaveChanges();
             }
         }
     }
