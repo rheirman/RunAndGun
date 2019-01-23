@@ -57,11 +57,8 @@ namespace RunAndGun
             dialogCEShown.VisibilityPredicate = delegate { return false; };
 
             bool combatExtendedLoaded = AssemblyExists("CombatExtended");
-            Log.Message("RunAndGun latest version loaded");
-            Log.Message("Combat extended loaded from RunAndGun: " + combatExtendedLoaded);
             if (combatExtendedLoaded && !dialogCEShown)
             {
-                Log.Message("showing dialog");
                 Find.WindowStack.Add(new Dialog_CE("RG_Dialog_CE_Title".Translate(), "RG_Dialog_CE_Description".Translate()));
             }
             if (!combatExtendedLoaded)
@@ -102,7 +99,6 @@ namespace RunAndGun
         }
         internal void ResetForbidden()
         {
-            Log.Message("ResetForbidden called");
             weaponForbidder.Value = null;
             DrawUtility.filterWeapons(ref weaponForbidder, allWeapons, null);
         }
