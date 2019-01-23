@@ -197,6 +197,7 @@ namespace RunAndGun.Utilities
         //This needs to be refactored, I don't like the mixing of the forbid weapons setting and the matching weapons setting with a filter. 
         internal static void filterWeapons(ref SettingHandle<DictWeaponRecordHandler> setting, List<ThingDef> allWeapons, SettingHandle<float> filter = null)
         {
+            Log.Message("calling filterWeapons for setting with name: " + setting.Name);
             if (setting.Value == null)
             {
                 setting.Value = new DictWeaponRecordHandler();
@@ -208,6 +209,7 @@ namespace RunAndGun.Utilities
                 bool shouldSelect = false;
                 if (filter != null)
                 {
+                    Log.Message("filter was not null");
                     float mass = weapon.GetStatValueAbstract(StatDefOf.Mass);
                     shouldSelect = mass >= filter.Value;
                 }
@@ -215,11 +217,21 @@ namespace RunAndGun.Utilities
                 bool found = setting.Value.InnerList.TryGetValue(weapon.defName, out value);
                 if (found && value.isException)
                 {
+                    Log.Message("found saved setting, def: " + weapon.defName);
                     selection.Add(weapon.defName, value);
                 }
                 else
                 {
                     bool weaponDefaultForbidden = weapon.GetModExtension<DefModExtension_SettingDefaults>() is DefModExtension_SettingDefaults modExt && modExt.weaponForbidden;
+                    if (weapon.GetModExtension<DefModExtension_SettingDefaults>() is DefModExtension_SettingDefaults modExt2)
+                    {
+                        Log.Message("fount mod extention weaponForbidden: " + modExt2.weaponForbidden + ", def: " + weapon.defName);
+                    }
+                    else
+                    {
+                        Log.Message("didn't find any modExt for def: " + weapon.defName);
+                    }
+
                     shouldSelect = filter == null ? weaponDefaultForbidden : shouldSelect;
                     selection.Add(weapon.defName, new WeaponRecord(shouldSelect, false, weapon.label));
                 }
