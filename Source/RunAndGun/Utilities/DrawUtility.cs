@@ -193,6 +193,8 @@ namespace RunAndGun.Utilities
             return change;
         }
 
+
+        //This needs to be refactored, I don't like the mixing of the forbid weapons setting and the matching weapons setting with a filter. 
         internal static void filterWeapons(ref SettingHandle<DictWeaponRecordHandler> setting, List<ThingDef> allWeapons, SettingHandle<float> filter = null)
         {
             if (setting.Value == null)
@@ -217,8 +219,9 @@ namespace RunAndGun.Utilities
                 }
                 else
                 {
-                    bool isException = weapon.GetModExtension<DefModExtension_SettingDefaults>() is DefModExtension_SettingDefaults modExt && modExt.weaponForbidden;
-                    selection.Add(weapon.defName, new WeaponRecord(shouldSelect, isException, weapon.label));
+                    bool weaponDefaultForbidden = weapon.GetModExtension<DefModExtension_SettingDefaults>() is DefModExtension_SettingDefaults modExt && modExt.weaponForbidden;
+                    shouldSelect = filter == null ? weaponDefaultForbidden : shouldSelect;
+                    selection.Add(weapon.defName, new WeaponRecord(shouldSelect, false, weapon.label));
                 }
 
             }
