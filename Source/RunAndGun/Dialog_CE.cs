@@ -65,7 +65,6 @@ namespace RunAndGun
             var downloadButtonRect = new Rect(inRect.x, inRect.height - ConfirmButtonSize.y, ConfirmButtonSize.x, ConfirmButtonSize.y);
             if (Widgets.ButtonText(downloadButtonRect, ConfirmButtonCaption))
             {
-                Log.Message("letting CE overwrite forbidden defaults");
                 Base.Instance.ResetForbidden();
                 Close();
                 Base.dialogCEShown.Value = true;
@@ -75,7 +74,6 @@ namespace RunAndGun
             closeButtonRect = new Rect(inRect.width - CloseButSize.x, inRect.height - CloseButSize.y, CloseButSize.x, CloseButSize.y);
             if (Widgets.ButtonText(closeButtonRect, "RG_Dialog_CE_DisallowButton".Translate()))
             {
-                Log.Message("overriding defaults not allowed");
                 Close();
                 Base.dialogCEShown.Value = true;
                 HugsLibController.SettingsManager.SaveChanges();
