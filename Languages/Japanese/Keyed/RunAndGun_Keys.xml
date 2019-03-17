@@ -34,5 +34,9 @@
   <RG_Action_Disable_Description>移動射撃モードを無効化</RG_Action_Disable_Description>
   <RG_Action_Enable_Description>このRunAndGunを有効にすると、ポーンが移動しながら射撃できるモードになります。走っている間に射撃を行うと射撃武器の命中精度とポーンの移動にペナルティが発生します。</RG_Action_Enable_Description>
 
+  <RG_Dialog_CE_Title>RunAndGunをCombat-Extended用に変更する</RG_Dialog_CE_Title>
+  <RG_Dialog_CE_Description>あなたは最新版のRunAndGunとCombat-Extendedを初めて一緒に使用するようですですね。Combat-ExtendedはRunAndGunに最適ですが、それぞれ個別の武器には適していないものも有ります。\nあなたが最高の経験をするために、Combat-Extendedがどの武器で実行されるかと、どの武器で射撃が禁止されるかの設定を、必ず見直して再設定するようにしてください。以前にRunAndGunの設定で禁止された武器を設定していたならば、あなたの設定（その特定の設定のみ）は新しいものに上書きされるでしょう。</RG_Dialog_CE_Description>
+  <RG_Dialog_CE_ConfirmButton>許可</RG_Dialog_CE_ConfirmButton>
+  <RG_Dialog_CE_DisallowButton>禁止</RG_Dialog_CE_DisallowButton>
 
 </LanguageData>
