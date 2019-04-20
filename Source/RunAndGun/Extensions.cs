@@ -9,6 +9,14 @@ namespace RunAndGun
 {
     public static class Extensions
     {
+        public static bool HasRangedWeapon(this Pawn instance)
+        {
+            if(instance.equipment != null && instance.equipment.Primary != null && instance.equipment.Primary.def.IsWeaponUsingProjectiles)
+            {
+                return true;
+            }
+            return false;
+        }
         public static bool Contains(this Rect rect, Rect otherRect)
         {
             if (!rect.Contains(new Vector2(otherRect.xMin, otherRect.yMin)))

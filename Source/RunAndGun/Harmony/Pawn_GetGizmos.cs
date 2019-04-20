@@ -15,7 +15,7 @@ namespace RunAndGun.Harmony
     {
         public static void Postfix(ref IEnumerable<Gizmo> __result, ref Pawn __instance)
         {
-            if (__instance == null || !__instance.Drafted || !__instance.Faction.Equals(Faction.OfPlayer) || !WorkGiver_HunterHunt.HasHuntingWeapon(__instance))
+            if (__instance == null || !__instance.Drafted || !__instance.Faction.Equals(Faction.OfPlayer) || !__instance.HasRangedWeapon())
             {
                 return;
             }

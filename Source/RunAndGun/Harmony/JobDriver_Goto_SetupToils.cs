@@ -27,7 +27,10 @@ namespace RunAndGun.Harmony
                 Toil toil = toils.ElementAt(0);
                 toil.AddPreTickAction(delegate
                 {
-                    if (jobDriver.pawn != null && jobDriver.pawn.IsHashIntervalTick(10) && !jobDriver.pawn.IsBurning() && (jobDriver.pawn.Drafted || !jobDriver.pawn.IsColonist) && !jobDriver.pawn.Downed)
+                    if (jobDriver.pawn != null && 
+                    jobDriver.pawn.IsHashIntervalTick(10) && 
+                    !jobDriver.pawn.IsBurning() && 
+                    (jobDriver.pawn.Drafted || !jobDriver.pawn.IsColonist) && !jobDriver.pawn.Downed)
                     {
                         checkForAutoAttack(jobDriver);
                     }
@@ -49,6 +52,7 @@ namespace RunAndGun.Harmony
                     return;
                 }
                 Verb verb = __instance.pawn.TryGetAttackVerb(null);
+                                
                 if (verb != null)
                 {
                     TargetScanFlags targetScanFlags = TargetScanFlags.NeedLOSToPawns | TargetScanFlags.NeedLOSToNonPawns | TargetScanFlags.NeedThreat;
@@ -57,7 +61,7 @@ namespace RunAndGun.Harmony
                         targetScanFlags |= TargetScanFlags.NeedNonBurning;
                     }
                     Thing thing = (Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(__instance.pawn, targetScanFlags, null, 0f, 9999f);
-                    if (thing != null)
+                    if (thing != null && !(verb.IsMeleeAttack && __instance.pawn.CanReachImmediate(thing, PathEndMode.Touch))) //Don't allow melee attacks, but take into account ranged animals or dual wield users
                     {
                         __instance.pawn.TryStartAttack(thing);
                         return;
