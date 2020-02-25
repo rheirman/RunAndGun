@@ -108,7 +108,7 @@ namespace RunAndGun.Utilities
             }
             else
             {
-                resolvedIcon = new Texture();
+                resolvedIcon = new Texture2D(0,0);
             }
 
             GUI.color = color;

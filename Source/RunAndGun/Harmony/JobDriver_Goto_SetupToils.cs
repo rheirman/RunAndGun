@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Harmony;
+using HarmonyLib;
 using Verse;
 using Verse.AI;
 using RimWorld;
@@ -40,7 +40,7 @@ namespace RunAndGun.Harmony
         }
         static void checkForAutoAttack(JobDriver_Goto __instance)
         {
-            if ((__instance.pawn.story == null || !__instance.pawn.story.WorkTagIsDisabled(WorkTags.Violent))
+            if ((__instance.pawn.story == null || !__instance.pawn.story.DisabledWorkTagsBackstoryAndTraits.HasFlag(WorkTags.Violent))
                 && __instance.pawn.Faction != null
                 && !(__instance.pawn.stances.curStance is Stance_RunAndGun)
                 && __instance.pawn.jobs.curJob.def == JobDefOf.Goto
