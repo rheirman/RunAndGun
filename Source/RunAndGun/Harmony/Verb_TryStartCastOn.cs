@@ -8,7 +8,7 @@ using RimWorld;
 
 namespace RunAndGun.Harmony
 {
-    [HarmonyPatch(typeof(Verb), "TryStartCastOn")]
+    [HarmonyPatch(typeof(Verb), "TryStartCastOn", new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool) })]
     static class Verb_TryStartCastOn
     {
         static bool Prefix(Verb __instance, ref LocalTargetInfo castTarg, ref bool surpriseAttack, bool canHitNonTargetPawns = true)
@@ -49,7 +49,7 @@ namespace RunAndGun.Harmony
             {
                 return false;
             }
-
+            
             Traverse.Create(__instance).Field("surpriseAttack").SetValue(surpriseAttack);
             Traverse.Create(__instance).Field("canHitNonTargetPawnsNow").SetValue(canHitNonTargetPawns);
             Traverse.Create(__instance).Field("currentTarget").SetValue(castTarg);
