@@ -63,9 +63,8 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="HugsLib">
-      <HintPath>packages\UnlimitedHugs.Rimworld.HugsLib.6.2.1\lib\net472\HugsLib.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="HugsLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\UnlimitedHugs.Rimworld.HugsLib.7.0.1\lib\net472\HugsLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
@@ -77,10 +76,6 @@
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine - kopie">
-      <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine - kopie.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AccessibilityModule">
