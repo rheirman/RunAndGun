@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RunAndGun\Source\RunAndGun\obj\Debug\RunAndGun.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RunAndGun\Source\RunAndGun\obj\Debug\RunAndGun.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RunAndGun\1.1\Assemblies\RunAndGun.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RunAndGun\Source\RunAndGun\obj\Debug\RunAndGun.dll
