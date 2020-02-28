@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>RunAndGun</modNameReadable>
+		<modIdentifier>RunAndGun</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=36061.0</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>RunAndGun_2_0_0</defName>
+		<assemblyVersion>2.0.0</assemblyVersion>
+		<content>
+RunAndGun has been updated to support Rimworld version 1.1 (including the expansion). Credits for this update go to Ogliss. Thanks to this amazing community my mods are being kept alive! This version also supports Rimworld 1.0, so no need to worry if you're still using that version. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
