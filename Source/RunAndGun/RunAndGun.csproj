@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17D24D46-B075-4984-99AF-215DD74A04F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RunAndGun</RootNamespace>
+    <AssemblyName>RunAndGun</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\818773962\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HugsLib">
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\818773962\Assemblies\HugsLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompRunAndGun.cs" />
+    <Compile Include="CompProperties_RunAndGun.cs" />
+    <Compile Include="Dialog_CE.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Harmony\MentalStateHandler_TryStartMentalState.cs" />
+    <Compile Include="Harmony\JobDriver_Goto_SetupToils.cs" />
+    <Compile Include="Harmony\Pawn_GetGizmos.cs" />
+    <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
+    <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
+    <Compile Include="Harmony\Verb_TryCastNextBurstShot.cs" />
+    <Compile Include="Harmony\Verb_TryStartCastOn.cs" />
+    <Compile Include="ModExtensions\DefModExtension_RunAndGun.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="Stance_RunAndGun_Cooldown.cs" />
+    <Compile Include="Stance_RunAndGun.cs" />
+    <Compile Include="Utilities\DrawUtility.cs" />
+    <Compile Include="Utilities\WeaponUtility.cs" />
+    <Compile Include="DictWeaponRecordHandler.cs" />
+    <Compile Include="WeaponRecord.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
