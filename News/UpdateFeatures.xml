@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase_RunAndGun">
 		<modNameReadable>RunAndGun</modNameReadable>
 		<modIdentifier>RunAndGun</modIdentifier>
 		<linkUrl>https://ludeon.com/forums/index.php?topic=36061.0</linkUrl>
 	</HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_RunAndGun">
 		<defName>RunAndGun_2_0_0</defName>
 		<assemblyVersion>2.0.0</assemblyVersion>
 		<content>
