@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <RunAndGun_1_17_6.modNameReadable>RunAndGun</RunAndGun_1_17_6.modNameReadable>
+  <!--<RunAndGun_1_17_6.modNameReadable>RunAndGun</RunAndGun_1_17_6.modNameReadable>
   <RunAndGun_1_17_6.content>RunAndGunが更新され、以下の変更が加えられました: 
 
 ・RunAndGunの移動ペナルティの大きさは、武器の重さに左右されます。
@@ -30,7 +30,7 @@
 - 適応を禁止するための武器選択とMod設定は完全に再構築されて実装たことで、ユーザーフレンドリーなデザインになっています。 
 - 新しい武器を追加するMODがインストールされると、重量フィルターが自動的に適用され、今後は新しい武器は通常問題なく適用されます。
 - 残念ながら、以前のバージョンの武器選択で設定された武器は再設定する必要があります。
-  </RunAndGun_1_18_3.content>
+  </RunAndGun_1_18_3.content> -->
 
   <RunAndGun_2_0_0.modNameReadable>RunAndGun</RunAndGun_2_0_0.modNameReadable>
   <RunAndGun_2_0_0.content>\nRunAndGunをRimworld1.1(拡張DLCを含む)をサポートする更新を行いました。このアップデートのクレジットはOglissにあります。この素晴らしいコミュニティのおかげで、私のModは生き続けています!\nこのバージョンはRimworld1.0もサポートしているので、まだこの1.0を利用している人は心配する必要はありません。\n  </RunAndGun_2_0_0.content>
