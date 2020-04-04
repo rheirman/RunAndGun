@@ -6,7 +6,8 @@
 			<li>1.0</li>
 			<li>1.1</li>
 	</supportedVersions>
-	
+   <packageId>roolo.RunAndGun</packageId>
+   
 	<modDependencies>
       <li>
         <packageId>UnlimitedHugs.HugsLib</packageId>
@@ -14,8 +15,10 @@
         <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=818773962</steamWorkshopUrl>
       </li>  
     </modDependencies>
-   <packageId>roolo.RunAndGun</packageId>
 
+	<loadAfter>
+	  <li>UnlimitedHugs.HugsLib</li>
+	</loadAfter>
 	<description> Your colonists can never be a true Rambo if they cannot gun while they are running. Therefore, this mod adds a mode that, when enabled, allows drafted colonists to shoot 
 while moving at the cost of an accuracy and movement penalty.These penalties can be modified in the mod settings of this mod. 
 Some things to take into account: 
@@ -34,4 +37,5 @@ Therefore some issues regarding mod compatibility are bound to come up. Most iss
 
 
 	</description>	
+	
 </ModMetaData>
