@@ -13,18 +13,17 @@ namespace RunAndGun.Harmony
     [HarmonyPatch(typeof(JobDriver), "SetupToils")]
     static class JobDriver_SetupToils
     {
-        static void Postfix(JobDriver __instance)
+        static void Postfix(JobDriver __instance, List<Toil> ___toils)
         {
             if(!(__instance is JobDriver_Goto))
             {
                 return;
             }
             JobDriver_Goto jobDriver = (JobDriver_Goto)__instance;
-            List<Toil> toils = Traverse.Create(jobDriver).Field("toils").GetValue<List<Toil>>();
-            if (toils.Count() > 0)
+            if (___toils.Count() > 0)
             {
 
-                Toil toil = toils.ElementAt(0);
+                Toil toil = ___toils.ElementAt(0);
                 toil.AddPreTickAction(delegate
                 {
                     if (jobDriver.pawn != null && 

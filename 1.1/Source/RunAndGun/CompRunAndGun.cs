@@ -26,6 +26,12 @@ namespace RunAndGun
         }
         public bool isEnabled = false;
 
+        //This can be misused to read isEnabled from other mods without using (expensive) reflection. 
+        public override string GetDescriptionPart()
+        {   
+            return isEnabled.ToString();
+        }
+
 
         public override void CompTickRare()
         {

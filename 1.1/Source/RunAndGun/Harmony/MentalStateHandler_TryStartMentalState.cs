@@ -14,16 +14,13 @@ namespace RunAndGun.Harmony
     [HarmonyPatch(typeof(MentalStateHandler), "TryStartMentalState")]
     public class MentalStateHandler_TryStartMentalState
     {
-        static void Postfix(MentalStateHandler __instance, MentalStateDef stateDef)
+        static void Postfix(MentalStateHandler __instance, MentalStateDef stateDef, ref Pawn ___pawn)
         {
             if (stateDef != MentalStateDefOf.PanicFlee)
             {
                 return;
             }
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-
-            CompRunAndGun comp = pawn.TryGetComp<CompRunAndGun>();
-
+            CompRunAndGun comp = ___pawn.TryGetComp<CompRunAndGun>();
             if (comp != null && Base.enableForAI.Value)
             {
                 comp.isEnabled = shouldRunAndGun();

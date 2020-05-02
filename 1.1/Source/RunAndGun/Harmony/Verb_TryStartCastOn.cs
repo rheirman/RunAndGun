@@ -11,7 +11,7 @@ namespace RunAndGun.Harmony
     [HarmonyPatch(typeof(Verb), "TryStartCastOn", new Type[] { typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(bool), typeof(bool) })]
     static class Verb_TryStartCastOn
     {
-        static bool Prefix(Verb __instance, ref LocalTargetInfo castTarg, ref bool surpriseAttack, bool canHitNonTargetPawns = true)
+        static bool Prefix(Verb __instance, LocalTargetInfo castTarg, bool surpriseAttack, bool canHitNonTargetPawns, ref bool ___surpriseAttack, ref bool ___canHitNonTargetPawnsNow, ref LocalTargetInfo ___currentTarget)
         {
             Pawn pawn = __instance.CasterPawn;
             if (__instance.caster == null)
@@ -49,10 +49,10 @@ namespace RunAndGun.Harmony
             {
                 return false;
             }
-            
-            Traverse.Create(__instance).Field("surpriseAttack").SetValue(surpriseAttack);
-            Traverse.Create(__instance).Field("canHitNonTargetPawnsNow").SetValue(canHitNonTargetPawns);
-            Traverse.Create(__instance).Field("currentTarget").SetValue(castTarg);
+
+            ___surpriseAttack = surpriseAttack;
+            ___canHitNonTargetPawnsNow = canHitNonTargetPawns;
+            ___currentTarget = castTarg;
 
             if (__instance.CasterIsPawn && __instance.verbProps.warmupTime > 0f)
             {

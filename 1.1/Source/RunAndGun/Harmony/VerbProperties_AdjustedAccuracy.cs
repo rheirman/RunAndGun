@@ -26,7 +26,7 @@ namespace RunAndGun.Harmony
                 return;
             }
             Pawn_EquipmentTracker eqt = (Pawn_EquipmentTracker)equipment.holdingOwner.Owner;
-            Pawn pawn = Traverse.Create(eqt).Field("pawn").GetValue<Pawn>();
+            Pawn pawn = eqt.pawn;
             if(pawn == null || pawn.stances == null)
             {
                 return;

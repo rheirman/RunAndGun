@@ -19,7 +19,7 @@ namespace RunAndGun.Harmony
             var instructionsList = new List<CodeInstruction>(instructions);
             foreach (CodeInstruction instruction in instructionsList)
             {
-                if (instruction.operand == typeof(Pawn_StanceTracker).GetMethod("SetStance"))
+                if (instruction.operand as MethodInfo == typeof(Pawn_StanceTracker).GetMethod("SetStance"))
                 {
                     yield return new CodeInstruction(OpCodes.Call, typeof(Verb_TryCastNextBurstShot).GetMethod("SetStanceRunAndGun"));
                 }
