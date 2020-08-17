@@ -31,16 +31,13 @@ namespace RunAndGun.Harmony
         }
         public static void SetStanceRunAndGun(Pawn_StanceTracker stanceTracker, Stance_Cooldown stance)
         {
-            Log.Message("SetStanceRunAndGun");
             if (stanceTracker.pawn.equipment == null)
             {
                 stanceTracker.SetStance(stance);
-                Log.Message("equipment == null");
                 return;
             }
             if (stanceTracker.pawn.equipment.Primary == stance.verb.EquipmentSource || stance.verb.EquipmentSource == null || stance.verb.EquipmentSource is Apparel)
             {
-                Log.Message("equipment != null");
                 if ((((stanceTracker.curStance is Stance_RunAndGun) || (stanceTracker.curStance is Stance_RunAndGun_Cooldown))) && stanceTracker.pawn.pather.Moving)
                 {
                     stanceTracker.SetStance(new Stance_RunAndGun_Cooldown(stance.ticksLeft, stance.focusTarg, stance.verb));
