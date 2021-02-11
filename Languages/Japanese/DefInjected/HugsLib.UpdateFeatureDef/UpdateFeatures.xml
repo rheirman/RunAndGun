@@ -1,38 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <!--<RunAndGun_1_17_6.modNameReadable>RunAndGun</RunAndGun_1_17_6.modNameReadable>
-  <RunAndGun_1_17_6.content>RunAndGunが更新され、以下の変更が加えられました: 
-
-・RunAndGunの移動ペナルティの大きさは、武器の重さに左右されます。
-　どれぐらいの重さで重い武器とみなされるのかと、武器タイプごとの
-　ペナルティ値をModオプションで設定することができます。
-・敵のポーンが逃亡している最中にRunAndGunを使用する確率を設定するための
-　Modオプションが追加されました。
-・非人類種族との互換性が向上しました。
-・RunAndGunボタンの画面位置を変更しました。
-  </RunAndGun_1_17_6.content>
-
-  <RunAndGun_1_18_2.modNameReadable>RunAndGun</RunAndGun_1_18_2.modNameReadable>
-  <RunAndGun_1_18_2.content>RunAndGunが更新され、以下の変更が加えられました:
-
-・Mod設定にタブが追加されました。 
-・特定の武器に対してRunAndGunを禁止する新しいModオプションが追加されました。
-　これは、敵のポーンが使用する武器にも適用されます。
-・もう火が付いた状態のポーンがRunAndGun(武装切り替え)することはありません。
-・移動中にポーンの動きが止まり、射撃をした際に武器のクールダウンが0に戻って
-　回避される問題が修正されました。
-・韓国語の翻訳が追加されました。
-  </RunAndGun_1_18_2.content>
-
-  <RunAndGun_1_18_3.modNameReadable>RunAndGun</RunAndGun_1_18_3.modNameReadable>
-  <RunAndGun_1_18_3.content>RunAndGunが更新され、以下の変更が加えられました: 
-- 適応を禁止するための武器選択とMod設定は完全に再構築されて実装たことで、ユーザーフレンドリーなデザインになっています。 
-- 新しい武器を追加するMODがインストールされると、重量フィルターが自動的に適用され、今後は新しい武器は通常問題なく適用されます。
-- 残念ながら、以前のバージョンの武器選択で設定された武器は再設定する必要があります。
-  </RunAndGun_1_18_3.content> -->
-
   <RunAndGun_2_0_0.modNameReadable>RunAndGun</RunAndGun_2_0_0.modNameReadable>
   <RunAndGun_2_0_0.content>\nRunAndGunをRimworld1.1(拡張DLCを含む)をサポートする更新を行いました。このアップデートのクレジットはOglissにあります。この素晴らしいコミュニティのおかげで、私のModは生き続けています!\nこのバージョンはRimworld1.0もサポートしているので、まだこの1.0を利用している人は心配する必要はありません。\n  </RunAndGun_2_0_0.content>
+
+  <RunAndGun_3_0_0.modNameReadable>RunAndGun</RunAndGun_3_0_0.modNameReadable>
+  <RunAndGun_3_0_0.content>\nRunAndGunは、Rimworldバージョン1.2に対応できるように更新されました。このバージョンはRimworldの1.0および1.1もマルチバージョンサポートしているため、それらの古いバージョンを引き続き使用している場合でも心配する必要はありません。\n		</RunAndGun_3_0_0.content>
 
 </LanguageData>
