@@ -35,4 +35,17 @@ Roolo
 
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_RunAndGun">
+		<defName>RunAndGun_5_0_0</defName>
+		<assemblyVersion>5.0.0</assemblyVersion>
+		<content>
+RunAndGun has been updated to support Rimworld version 1.4.
+
+Enjoy the update!
+
+Cheers,
+Roolo
+
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>

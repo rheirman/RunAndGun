@@ -4,5 +4,5 @@
 	but no minimum version will be required -->
 	
 	<!-- Optional. This specifies the version of your mod for the library. Otherwise, the version of your mod's assembly will be used. -->
-	<overrideVersion>4.0.0</overrideVersion>
+	<overrideVersion>5.0.0</overrideVersion>
 </VersionData>
