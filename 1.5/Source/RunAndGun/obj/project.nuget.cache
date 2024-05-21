@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "5iZ3F7Vna8wfi39KO+DLnwvCExqEbdGw7L3TtpIWSv6CoN2F17aGHqi0STvIecPqxV1YnhhS8rF4rw3b2cFSZA==",
+  "success": true,
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\RunAndGun\\1.5\\Source\\RunAndGun\\RunAndGun.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\krafs.rimworld.ref\\1.5.4085\\krafs.rimworld.ref.1.5.4085.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\lib.harmony\\2.3.3\\lib.harmony.2.3.3.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.build.framework\\15.1.548\\microsoft.build.framework.15.1.548.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.build.utilities.core\\15.1.548\\microsoft.build.utilities.core.15.1.548.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.diagnostics.debug\\4.0.11\\system.diagnostics.debug.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.globalization\\4.0.11\\system.globalization.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime\\4.1.0\\system.runtime.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime.interopservices\\4.1.0\\system.runtime.interopservices.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.threading\\4.0.11\\system.threading.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.threading.thread\\4.0.0\\system.threading.thread.4.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\taskpubliciser\\1.0.3\\taskpubliciser.1.0.3.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\unlimitedhugs.rimworld.hugslib\\11.0.3\\unlimitedhugs.rimworld.hugslib.11.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
